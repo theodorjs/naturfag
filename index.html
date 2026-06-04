@@ -929,7 +929,7 @@
     .web-box {
       background: white;
       border-radius: 16px;
-      padding: 16px 12px 8px;
+      padding: 16px 12px 14px;
       margin-bottom: 28px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
       overflow-x: auto;
@@ -937,25 +937,34 @@
 
     .web-legend {
       display: flex;
-      gap: 14px;
+      gap: 6px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: var(--text-light);
-    }
-
-    .web-legend span {
-      display: flex;
+      margin-top: 14px;
       align-items: center;
-      gap: 5px;
     }
 
-    .leg-line {
-      display: inline-block;
-      width: 22px;
-      height: 2px;
-      border-radius: 2px;
+    .role-badge {
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+      border: 2px solid;
+    }
+
+    .legend-arrow {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #aaa;
+      line-height: 1;
+    }
+
+    .legend-dashed {
+      font-size: 0.95rem;
+      color: #8b5e3c;
+      font-weight: 800;
+      letter-spacing: 2px;
     }
 
     /* WEB GAME */
@@ -1135,75 +1144,104 @@
     </div>
 
     <div class="web-box">
-      <svg viewBox="0 0 540 278" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:280px;display:block">
+      <svg viewBox="0 0 555 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:300px;display:block">
         <defs>
-          <marker id="ag" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
-            <polygon points="0 0,7 3,0 6" fill="#52b788" />
+          <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#52b788" />
           </marker>
-          <marker id="ao" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
-            <polygon points="0 0,7 3,0 6" fill="#f4a261" />
+          <marker id="ao" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#f4a261" />
           </marker>
-          <marker id="ar" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
-            <polygon points="0 0,7 3,0 6" fill="#c1121f" />
+          <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#c1121f" />
+          </marker>
+          <marker id="ab" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#8b5e3c" />
           </marker>
         </defs>
-        <!-- Green: Produsent → 1.forbruker -->
-        <line x1="90" y1="218" x2="91" y2="182" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
-        <line x1="290" y1="218" x2="290" y2="182" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
-        <!-- Orange: 1.forbruker → 2.forbruker -->
-        <line x1="109" y1="128" x2="148" y2="82" stroke="#f4a261" stroke-width="2" marker-end="url(#ao)" />
-        <line x1="272" y1="130" x2="190" y2="80" stroke="#f4a261" stroke-width="2" marker-end="url(#ao)" />
-        <!-- Red: → Toppkonsument -->
-        <line x1="115" y1="124" x2="390" y2="69" stroke="#c1121f" stroke-width="1.8" marker-end="url(#ar)" />
-        <line x1="308" y1="128" x2="395" y2="72" stroke="#c1121f" stroke-width="1.8" marker-end="url(#ar)" />
-        <line x1="196" y1="55" x2="390" y2="55" stroke="#c1121f" stroke-width="1.8" marker-end="url(#ar)" />
-        <!-- Organisms -->
-        <circle cx="90" cy="244" r="27" fill="white" stroke="#52b788" stroke-width="2" />
-        <text x="90" y="238" text-anchor="middle" font-size="21">🌿</text>
-        <text x="90" y="252" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+        <!-- GREEN: Produsent → 1. forbruker -->
+        <line x1="110" y1="255" x2="110" y2="218" stroke="#52b788" stroke-width="2.5" marker-end="url(#ag)" />
+        <line x1="350" y1="255" x2="350" y2="218" stroke="#52b788" stroke-width="2.5" marker-end="url(#ag)" />
+        <!-- ORANGE: 1. forbruker → 2. forbruker -->
+        <line x1="134" y1="146" x2="171" y2="94" stroke="#f4a261" stroke-width="2.5" marker-end="url(#ao)" />
+        <line x1="318" y1="154" x2="227" y2="86" stroke="#f4a261" stroke-width="2.5" marker-end="url(#ao)" />
+        <!-- RED: → 3. forbruker -->
+        <line x1="148" y1="166" x2="442" y2="74" stroke="#c1121f" stroke-width="2" marker-end="url(#ar)" />
+        <line x1="380" y1="151" x2="450" y2="89" stroke="#c1121f" stroke-width="2" marker-end="url(#ar)" />
+        <line x1="235" y1="62" x2="440" y2="62" stroke="#c1121f" stroke-width="2" marker-end="url(#ar)" />
+        <!-- BROWN DASHED: → Nedbryter -->
+        <line x1="150" y1="291" x2="460" y2="262" stroke="#8b5e3c" stroke-width="1.8" stroke-dasharray="5,3"
+          marker-end="url(#ab)" />
+        <line x1="389" y1="285" x2="461" y2="268" stroke="#8b5e3c" stroke-width="1.8" stroke-dasharray="5,3"
+          marker-end="url(#ab)" />
+        <line x1="149" y1="186" x2="461" y2="250" stroke="#8b5e3c" stroke-width="1.8" stroke-dasharray="5,3"
+          marker-end="url(#ab)" />
+        <line x1="385" y1="197" x2="465" y2="239" stroke="#8b5e3c" stroke-width="1.8" stroke-dasharray="5,3"
+          marker-end="url(#ab)" />
+        <line x1="229" y1="84" x2="466" y2="236" stroke="#8b5e3c" stroke-width="1.8" stroke-dasharray="5,3"
+          marker-end="url(#ab)" />
+        <line x1="484" y1="102" x2="496" y2="218" stroke="#8b5e3c" stroke-width="1.8" stroke-dasharray="5,3"
+          marker-end="url(#ab)" />
+        <!-- NODES -->
+        <circle cx="110" cy="295" r="40" fill="#d4f1e4" stroke="#52b788" stroke-width="2.5" />
+        <text x="110" y="284" text-anchor="middle" font-size="22">🌿</text>
+        <text x="110" y="300" text-anchor="middle" font-size="10" fill="#1a3d2b" font-weight="800"
           font-family="Nunito,sans-serif">Gress</text>
-        <text x="90" y="263" text-anchor="middle" font-size="7.5" fill="#4a6045"
+        <text x="110" y="312" text-anchor="middle" font-size="8" fill="#2d6a4f"
           font-family="Nunito,sans-serif">Produsent</text>
 
-        <circle cx="290" cy="244" r="27" fill="white" stroke="#52b788" stroke-width="2" />
-        <text x="290" y="238" text-anchor="middle" font-size="21">🌲</text>
-        <text x="290" y="252" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+        <circle cx="350" cy="295" r="40" fill="#d4f1e4" stroke="#52b788" stroke-width="2.5" />
+        <text x="350" y="284" text-anchor="middle" font-size="22">🌲</text>
+        <text x="350" y="300" text-anchor="middle" font-size="10" fill="#1a3d2b" font-weight="800"
           font-family="Nunito,sans-serif">Gran</text>
-        <text x="290" y="263" text-anchor="middle" font-size="7.5" fill="#4a6045"
+        <text x="350" y="312" text-anchor="middle" font-size="8" fill="#2d6a4f"
           font-family="Nunito,sans-serif">Produsent</text>
 
-        <circle cx="90" cy="152" r="27" fill="white" stroke="#f4a261" stroke-width="2" />
-        <text x="90" y="146" text-anchor="middle" font-size="21">🐇</text>
-        <text x="90" y="160" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+        <circle cx="110" cy="178" r="40" fill="#fde8d4" stroke="#f4a261" stroke-width="2.5" />
+        <text x="110" y="167" text-anchor="middle" font-size="22">🐇</text>
+        <text x="110" y="183" text-anchor="middle" font-size="10" fill="#6b3a15" font-weight="800"
           font-family="Nunito,sans-serif">Hare</text>
-        <text x="90" y="171" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">1.
+        <text x="110" y="195" text-anchor="middle" font-size="8" fill="#8b5020" font-family="Nunito,sans-serif">1.
           forbruker</text>
 
-        <circle cx="290" cy="152" r="27" fill="white" stroke="#f4a261" stroke-width="2" />
-        <text x="290" y="146" text-anchor="middle" font-size="21">🐿️</text>
-        <text x="290" y="160" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+        <circle cx="350" cy="178" r="40" fill="#fde8d4" stroke="#f4a261" stroke-width="2.5" />
+        <text x="350" y="167" text-anchor="middle" font-size="22">🐿️</text>
+        <text x="350" y="183" text-anchor="middle" font-size="10" fill="#6b3a15" font-weight="800"
           font-family="Nunito,sans-serif">Ekorn</text>
-        <text x="290" y="171" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">1.
+        <text x="350" y="195" text-anchor="middle" font-size="8" fill="#8b5020" font-family="Nunito,sans-serif">1.
           forbruker</text>
 
-        <circle cx="165" cy="55" r="27" fill="white" stroke="#e76f51" stroke-width="2" />
-        <text x="165" y="49" text-anchor="middle" font-size="21">🦊</text>
-        <text x="165" y="63" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+        <circle cx="195" cy="62" r="40" fill="#fad8d0" stroke="#e76f51" stroke-width="2.5" />
+        <text x="195" y="51" text-anchor="middle" font-size="22">🦊</text>
+        <text x="195" y="67" text-anchor="middle" font-size="10" fill="#7a2d1a" font-weight="800"
           font-family="Nunito,sans-serif">Rev</text>
-        <text x="165" y="74" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">2.
+        <text x="195" y="79" text-anchor="middle" font-size="8" fill="#9a3520" font-family="Nunito,sans-serif">2.
           forbruker</text>
 
-        <circle cx="425" cy="55" r="27" fill="white" stroke="#c1121f" stroke-width="2" />
-        <text x="425" y="49" text-anchor="middle" font-size="21">🦅</text>
-        <text x="425" y="63" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+        <circle cx="480" cy="62" r="40" fill="#f8d0d2" stroke="#c1121f" stroke-width="2.5" />
+        <text x="480" y="51" text-anchor="middle" font-size="22">🦅</text>
+        <text x="480" y="67" text-anchor="middle" font-size="10" fill="#700d13" font-weight="800"
           font-family="Nunito,sans-serif">Kongeørn</text>
-        <text x="425" y="74" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">3.
+        <text x="480" y="79" text-anchor="middle" font-size="8" fill="#900d13" font-family="Nunito,sans-serif">3.
           forbruker</text>
+
+        <circle cx="500" cy="258" r="40" fill="#e8d5c5" stroke="#8b5e3c" stroke-width="2.5" />
+        <text x="500" y="247" text-anchor="middle" font-size="22">🍄</text>
+        <text x="500" y="263" text-anchor="middle" font-size="10" fill="#4a2e18" font-weight="800"
+          font-family="Nunito,sans-serif">Nedbryter</text>
+        <text x="500" y="275" text-anchor="middle" font-size="7.5" fill="#6b4a30"
+          font-family="Nunito,sans-serif">Sopp/bakterier</text>
       </svg>
       <div class="web-legend">
-        <span><span class="leg-line" style="background:#52b788"></span> Produsent → 1. forbruker</span>
-        <span><span class="leg-line" style="background:#f4a261"></span> 1. → 2. forbruker</span>
-        <span><span class="leg-line" style="background:#c1121f"></span> → Toppkonsument</span>
+        <span class="role-badge" style="background:#d4f1e4;border-color:#52b788;color:#1a3d2b">🌿 Produsent</span>
+        <span class="legend-arrow">→</span>
+        <span class="role-badge" style="background:#fde8d4;border-color:#f4a261;color:#6b3a15">🐇 1. forbruker</span>
+        <span class="legend-arrow">→</span>
+        <span class="role-badge" style="background:#fad8d0;border-color:#e76f51;color:#7a2d1a">🦊 2. forbruker</span>
+        <span class="legend-arrow">→</span>
+        <span class="role-badge" style="background:#f8d0d2;border-color:#c1121f;color:#700d13">🦅 3. forbruker</span>
+        <span class="legend-dashed">- - →</span>
+        <span class="role-badge" style="background:#e8d5c5;border-color:#8b5e3c;color:#4a2e18">🍄 Nedbryter</span>
       </div>
     </div>
 
@@ -1212,11 +1250,11 @@
     <div class="game-box">
       <div class="score-row">
         <div class="badge badge-sun">⭐ Poeng: <span id="wscore">0</span></div>
-        <div class="badge badge-ghost">Funnet: <span id="wfound">0</span> / 7 forbindelser</div>
+        <div class="badge badge-ghost">Funnet: <span id="wfound">0</span> / 13 forbindelser</div>
       </div>
       <h3>Koble næringsnett!</h3>
-      <p class="game-desc" id="winstr">Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 7
-        forbindelsene!</p>
+      <p class="game-desc" id="winstr">Klikk på et dyr som SPISER, og deretter på hva det spiser. Nedbryter bryter ned
+        alle – finn alle 13 forbindelsene!</p>
       <div class="web-nodes" id="wnodes"></div>
       <div class="conn-list" id="wconns"></div>
       <div class="game-feedback" id="wfb"></div>
@@ -1364,10 +1402,11 @@
       { id: 2, e: "🐇", n: "Hare" },
       { id: 3, e: "🐿️", n: "Ekorn" },
       { id: 4, e: "🦊", n: "Rev" },
-      { id: 5, e: "🦅", n: "Kongeørn" }
+      { id: 5, e: "🦅", n: "Kongeørn" },
+      { id: 6, e: "🍄", n: "Nedbryter" }
     ];
-    // Valid pairs: [predator_id, prey_id]
-    const validConns = [[2, 0], [3, 1], [4, 2], [4, 3], [5, 2], [5, 3], [5, 4]];
+    // Valid pairs: [predator_id, prey_id] – nedbryter bryter ned alle
+    const validConns = [[2, 0], [3, 1], [4, 2], [4, 3], [5, 2], [5, 3], [5, 4], [6, 0], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5]];
     let wScore = 0, wFound = [], wPredator = null;
 
     function initWebGame() {
@@ -1377,7 +1416,7 @@
       document.getElementById('wfb').textContent = '';
       document.getElementById('wfb').className = 'game-feedback';
       document.getElementById('wconns').innerHTML = '';
-      document.getElementById('winstr').textContent = 'Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 7 forbindelsene!';
+      document.getElementById('winstr').textContent = 'Klikk på et dyr som SPISER, og deretter på hva det spiser. Nedbryter bryter ned alle – finn alle 13 forbindelsene!';
       const nodesEl = document.getElementById('wnodes');
       nodesEl.innerHTML = '';
       webOrgs.forEach(o => {
@@ -1446,7 +1485,7 @@
           { e: "🌿", n: "Reinlav", r: "Produsent", pos: { top: "65%", left: "18%" } },
           { e: "🦌", n: "Villrein", r: "1. forbruker", pos: { top: "50%", left: "55%" } },
           { e: "🐺", n: "Ulv", r: "2. forbruker", pos: { top: "30%", left: "72%" } },
-          { e: "🦅", n: "Kongeørn", r: "3. forbruker", pos: { top: "12%", left: "38%" } }
+          { e: "🦅", n: "Kongeørn", r: "3. forbruker", pos: { top: "22%", left: "38%" } }
         ], correct: [0, 1, 2, 3]
       },
       {
@@ -1454,7 +1493,7 @@
           { e: "🌲", n: "Gran", r: "Produsent", pos: { top: "58%", left: "18%" } },
           { e: "🐿️", n: "Ekorn", r: "1. forbruker", pos: { top: "52%", left: "62%" } },
           { e: "🦊", n: "Rev", r: "2. forbruker", pos: { top: "62%", left: "42%" } },
-          { e: "🦅", n: "Hønsehauk", r: "3. forbruker", pos: { top: "12%", left: "58%" } }
+          { e: "🦅", n: "Hønsehauk", r: "3. forbruker", pos: { top: "22%", left: "58%" } }
         ], correct: [0, 1, 2, 3]
       },
       {
