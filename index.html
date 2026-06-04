@@ -1,631 +1,1711 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naturfag – Næringskjeder og Økosystemer</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
-<style>
-:root {
-  --green-dark: #1a3d2b;
-  --green-mid: #2d6a4f;
-  --green-light: #52b788;
-  --green-pale: #b7e4c7;
-  --earth: #8b5e3c;
-  --sky: #90e0ef;
-  --sky-dark: #0077b6;
-  --sun: #ffd166;
-  --red: #ef233c;
-  --bg: #f0f7f1;
-  --card: #ffffff;
-  --text: #1a2e1a;
-  --text-light: #4a6045;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naturfag – Næringskjeder og Økosystemer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:wght@700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: #1a3d2b;
+      --green-mid: #2d6a4f;
+      --green-light: #52b788;
+      --green-pale: #b7e4c7;
+      --earth: #8b5e3c;
+      --sky: #90e0ef;
+      --sky-dark: #0077b6;
+      --sun: #ffd166;
+      --red: #ef233c;
+      --bg: #f0f7f1;
+      --card: #ffffff;
+      --text: #1a2e1a;
+      --text-light: #4a6045;
+    }
 
-/* HEADER */
-header { background: var(--green-dark); padding: 20px 24px; text-align: center; }
-header h1 { font-family: 'Fraunces', serif; font-size: clamp(1.3rem, 4vw, 2rem); color: white; }
-header p { color: var(--green-pale); font-size: 0.9rem; margin-top: 4px; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* TABS */
-.tab-nav { display: flex; background: var(--green-mid); position: sticky; top: 0; z-index: 100; }
-.tab-btn { flex: 1; padding: 13px 10px; border: none; background: transparent; color: rgba(255,255,255,0.65); font-family: 'Nunito', sans-serif; font-size: 0.82rem; font-weight: 800; cursor: pointer; transition: all 0.2s; border-bottom: 3px solid transparent; }
-.tab-btn.active { color: white; border-bottom-color: var(--sun); background: rgba(255,255,255,0.1); }
-.tab-content { display: none; padding: 24px 16px; max-width: 900px; margin: 0 auto; }
-.tab-content.active { display: block; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
 
-/* SECTION TITLES */
-.section-title { font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--green-dark); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-.section-divider { height: 2px; background: linear-gradient(90deg, transparent, var(--green-pale), transparent); margin: 32px 0; }
+    /* HEADER */
+    header {
+      background: var(--green-dark);
+      padding: 20px 24px;
+      text-align: center;
+    }
 
-/* CONCEPT CARDS */
-.concept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-bottom: 28px; }
-.concept-card { background: white; border-radius: 16px; padding: 16px; border-left: 5px solid; cursor: default; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-.concept-card.produsent { border-color: #52b788; }
-.concept-card.f1 { border-color: #f4a261; }
-.concept-card.f2 { border-color: #e76f51; }
-.concept-card.f3 { border-color: #c1121f; }
-.concept-card.nedbryter { border-color: #8b5e3c; }
-.concept-card.alteter { border-color: #9b72cf; }
-.concept-card .c-emoji { font-size: 2rem; margin-bottom: 6px; }
-.concept-card .c-tag { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); }
-.concept-card .c-title { font-size: 1rem; font-weight: 900; color: var(--green-dark); margin: 2px 0 5px; }
-.concept-card .c-text { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
-.concept-card .c-ex { margin-top: 6px; font-size: 0.78rem; font-weight: 700; color: var(--green-mid); }
+    header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      color: white;
+    }
 
-/* CHAIN DISPLAY */
-.chain-display { display: flex; align-items: center; gap: 8px; background: white; border-radius: 16px; padding: 20px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); flex-wrap: wrap; justify-content: center; }
-.chain-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-.chain-item .ci-emoji { font-size: 2.2rem; background: var(--bg); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; }
-.chain-item .ci-name { font-size: 0.78rem; font-weight: 700; color: var(--green-dark); }
-.chain-item .ci-role { font-size: 0.62rem; color: var(--text-light); }
-.chain-arrow { font-size: 1.4rem; color: var(--green-light); }
+    header p {
+      color: var(--green-pale);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
 
-/* GAME BOX */
-.game-box { background: var(--green-dark); border-radius: 20px; padding: 22px; margin-bottom: 28px; color: white; }
-.game-box h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 4px; }
-.game-desc { color: var(--green-pale); font-size: 0.86rem; margin-bottom: 16px; }
-.score-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-.badge { border-radius: 50px; padding: 4px 14px; font-weight: 800; font-size: 0.85rem; }
-.badge-sun { background: var(--sun); color: var(--green-dark); }
-.badge-ghost { background: rgba(255,255,255,0.15); color: white; }
+    /* TABS */
+    .tab-nav {
+      display: flex;
+      background: var(--green-mid);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-/* GAME SCENE */
-.game-scene { background: linear-gradient(180deg, #87ceeb 0%, #87ceeb 42%, #3a7d44 42%, #1a3d2b 100%); border-radius: 14px; height: 180px; position: relative; overflow: hidden; margin-bottom: 14px; }
-.scene-org { position: absolute; cursor: pointer; text-align: center; transition: transform 0.15s; user-select: none; transform: translate(-50%,-50%); }
-.scene-org:hover { transform: translate(-50%,-50%) scale(1.15); }
-.scene-org.sel { filter: drop-shadow(0 0 8px var(--sun)); transform: translate(-50%,-50%) scale(1.1); }
-.scene-org.used { opacity: 0.25; pointer-events: none; }
-.scene-org .se { font-size: 2.6rem; display: block; }
-.scene-org .sn { font-size: 0.68rem; font-weight: 700; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.9); display: block; }
+    .tab-btn {
+      flex: 1;
+      padding: 13px 10px;
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.65);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+    }
 
-/* SLOTS */
-.chain-slots { display: flex; align-items: center; gap: 6px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
-.slot { width: 76px; height: 86px; border: 3px dashed rgba(255,255,255,0.35); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.07); }
-.slot:hover { border-color: rgba(255,209,102,0.6); background: rgba(255,209,102,0.1); }
-.slot.filled { border-style: solid; border-color: var(--sun); background: rgba(255,209,102,0.12); }
-.slot .sl-emoji { font-size: 1.9rem; }
-.slot .sl-label { font-size: 0.62rem; font-weight: 800; color: rgba(255,255,255,0.55); text-transform: uppercase; text-align: center; padding: 0 4px; margin-top: 3px; }
-.slot.filled .sl-label { color: var(--sun); }
-.slot .sl-name { font-size: 0.68rem; font-weight: 700; color: white; text-align: center; padding: 0 4px; }
-.slot-arrow { color: rgba(255,255,255,0.35); font-size: 1.2rem; }
-.game-feedback { text-align: center; font-size: 0.95rem; font-weight: 700; min-height: 26px; }
-.game-feedback.ok { color: var(--green-pale); }
-.game-feedback.no { color: #ffb3c1; }
-.game-btns { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
-.btn { padding: 10px 22px; border-radius: 50px; border: none; font-family: 'Nunito', sans-serif; font-size: 0.88rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
-.btn-sun { background: var(--sun); color: var(--green-dark); }
-.btn-sun:hover { background: #ffc107; transform: translateY(-1px); }
-.btn-ghost { background: rgba(255,255,255,0.14); color: white; }
-.btn-ghost:hover { background: rgba(255,255,255,0.24); }
+    .tab-btn.active {
+      color: white;
+      border-bottom-color: var(--sun);
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-/* ENERGY BOX */
-.energy-box { background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); color: white; border-radius: 20px; padding: 22px; margin-bottom: 28px; }
-.energy-box h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 14px; color: var(--sun); }
-.pyramid { display: flex; flex-direction: column; align-items: center; gap: 5px; margin-bottom: 14px; }
-.p-level { border-radius: 8px; display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; font-size: 0.84rem; font-weight: 700; }
-.p-pct { background: rgba(0,0,0,0.3); border-radius: 50px; padding: 2px 10px; font-size: 0.72rem; }
-.energy-text { color: var(--green-pale); font-size: 0.84rem; line-height: 1.5; }
+    .tab-content {
+      display: none;
+      padding: 24px 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-/* QUIZ */
-.quiz-box { background: white; border-radius: 20px; padding: 22px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-.quiz-progress { display: flex; gap: 6px; margin-bottom: 14px; }
-.qdot { width: 10px; height: 10px; border-radius: 50%; background: #dde8dd; }
-.qdot.done { background: var(--green-light); }
-.qdot.curr { background: var(--sun); }
-.quiz-q { font-size: 1rem; font-weight: 700; color: var(--green-dark); margin-bottom: 14px; line-height: 1.4; }
-.quiz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 12px; }
-@media (max-width: 480px) { .quiz-opts { grid-template-columns: 1fr; } }
-.qopt { padding: 11px 14px; border-radius: 12px; border: 2px solid #dde8dd; background: var(--bg); font-family: 'Nunito'; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: left; }
-.qopt:hover:not(:disabled) { border-color: var(--green-light); background: #f0fbf4; }
-.qopt.correct { border-color: var(--green-light); background: #d8f3dc; color: var(--green-dark); }
-.qopt.wrong { border-color: var(--red); background: #ffe0e6; color: #9b0000; }
-.quiz-fb { font-size: 0.88rem; font-weight: 700; min-height: 22px; }
-.quiz-fb.ok { color: var(--green-mid); }
-.quiz-fb.no { color: var(--red); }
+    .tab-content.active {
+      display: block;
+    }
 
-/* BIO/ABIO TAB */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
-@media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
-.info-card { background: white; border-radius: 16px; padding: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-.info-card h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--green-dark); margin-bottom: 8px; }
-.info-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.55; }
-.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
-.tag { padding: 4px 11px; border-radius: 50px; font-size: 0.78rem; font-weight: 700; }
-.tag.bio { background: #d8f3dc; color: #1a3d2b; }
-.tag.abio { background: #dde8f5; color: #023e8a; }
+    /* SECTION TITLES */
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-/* SORT GAME */
-.sort-game { background: var(--green-dark); border-radius: 20px; padding: 22px; margin-bottom: 28px; color: white; }
-.sort-game h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 4px; }
-.sort-pool { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; min-height: 54px; margin-bottom: 18px; }
-.scard { background: white; color: var(--green-dark); padding: 9px 14px; border-radius: 50px; font-weight: 700; font-size: 0.86rem; cursor: pointer; transition: all 0.2s; border: 2px solid white; user-select: none; }
-.scard:hover { transform: scale(1.05); }
-.scard.sel { background: var(--sun); border-color: var(--sun); }
-.scard.gone { display: none; }
-.sort-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-@media (max-width: 480px) { .sort-cols { grid-template-columns: 1fr; } }
-.scol { border: 2px dashed rgba(255,255,255,0.35); border-radius: 16px; padding: 14px; min-height: 120px; cursor: pointer; transition: all 0.2s; }
-.scol:hover { border-color: var(--sun); background: rgba(255,209,102,0.07); }
-.scol h4 { font-size: 0.82rem; font-weight: 800; text-align: center; margin-bottom: 10px; }
-.scol.bio-col h4 { color: var(--green-pale); }
-.scol.abio-col h4 { color: var(--sky); }
-.placed-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
-.pcard { padding: 5px 11px; border-radius: 50px; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
-.pcard.ok { background: rgba(183,228,199,0.25); color: var(--green-pale); border: 1px solid rgba(183,228,199,0.4); }
-.pcard.no { background: rgba(239,35,60,0.25); color: #ffb3c1; border: 1px solid rgba(239,35,60,0.4); }
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--green-pale), transparent);
+      margin: 32px 0;
+    }
 
-/* AREAS */
-.areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 13px; margin-bottom: 28px; }
-.area-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; transition: all 0.2s; }
-.area-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-.area-card.open { box-shadow: 0 0 0 3px var(--green-light); }
-.area-head { padding: 14px; display: flex; align-items: center; gap: 10px; }
-.a-emoji { font-size: 1.9rem; }
-.a-title { font-weight: 800; font-size: 0.92rem; color: var(--green-dark); }
-.a-sub { font-size: 0.72rem; color: var(--text-light); }
-.area-body { display: none; padding: 0 14px 14px; }
-.area-body.show { display: block; }
-.fgroup { margin-bottom: 10px; }
-.fg-title { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 5px; }
-.fg-title.bio { color: var(--green-mid); }
-.fg-title.abio { color: var(--sky-dark); }
-.fitem { font-size: 0.8rem; color: var(--text-light); padding: 4px 10px; border-radius: 7px; margin-bottom: 3px; display: flex; align-items: flex-start; gap: 5px; }
-.fitem.bio { background: #f0fbf4; }
-.fitem.abio { background: #f0f5fb; }
-.fitem::before { content: '•'; flex-shrink: 0; }
-.fitem.bio::before { color: var(--green-light); }
-.fitem.abio::before { color: var(--sky-dark); }
+    /* CONCEPT CARDS */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+    }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in { animation: fadeIn 0.3s ease forwards; }
-@keyframes pop { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
-.pop { animation: pop 0.35s ease; }
-</style>
+    .concept-card {
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      border-left: 5px solid;
+      cursor: default;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    .concept-card.produsent {
+      border-color: #52b788;
+    }
+
+    .concept-card.f1 {
+      border-color: #f4a261;
+    }
+
+    .concept-card.f2 {
+      border-color: #e76f51;
+    }
+
+    .concept-card.f3 {
+      border-color: #c1121f;
+    }
+
+    .concept-card.nedbryter {
+      border-color: #8b5e3c;
+    }
+
+    .concept-card.alteter {
+      border-color: #9b72cf;
+    }
+
+    .concept-card .c-emoji {
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .concept-card .c-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+    }
+
+    .concept-card .c-title {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--green-dark);
+      margin: 2px 0 5px;
+    }
+
+    .concept-card .c-text {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .concept-card .c-ex {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--green-mid);
+    }
+
+    /* CHAIN DISPLAY */
+    .chain-display {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .chain-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .chain-item .ci-emoji {
+      font-size: 2.2rem;
+      background: var(--bg);
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chain-item .ci-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .chain-item .ci-role {
+      font-size: 0.62rem;
+      color: var(--text-light);
+    }
+
+    .chain-arrow {
+      font-size: 1.4rem;
+      color: var(--green-light);
+    }
+
+    /* GAME BOX */
+    .game-box {
+      background: var(--green-dark);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 28px;
+      color: white;
+    }
+
+    .game-box h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .game-desc {
+      color: var(--green-pale);
+      font-size: 0.86rem;
+      margin-bottom: 16px;
+    }
+
+    .score-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      border-radius: 50px;
+      padding: 4px 14px;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .badge-sun {
+      background: var(--sun);
+      color: var(--green-dark);
+    }
+
+    .badge-ghost {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+    }
+
+    /* GAME SCENE */
+    .game-scene {
+      background: linear-gradient(180deg, #87ceeb 0%, #87ceeb 42%, #3a7d44 42%, #1a3d2b 100%);
+      border-radius: 14px;
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .scene-org {
+      position: absolute;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.15s;
+      user-select: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .scene-org:hover {
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+
+    .scene-org.sel {
+      filter: drop-shadow(0 0 8px var(--sun));
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .scene-org.used {
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .scene-org .se {
+      font-size: 2.6rem;
+      display: block;
+    }
+
+    .scene-org .sn {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      display: block;
+    }
+
+    /* SLOTS */
+    .chain-slots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .slot {
+      width: 76px;
+      height: 86px;
+      border: 3px dashed rgba(255, 255, 255, 0.35);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .slot:hover {
+      border-color: rgba(255, 209, 102, 0.6);
+      background: rgba(255, 209, 102, 0.1);
+    }
+
+    .slot.filled {
+      border-style: solid;
+      border-color: var(--sun);
+      background: rgba(255, 209, 102, 0.12);
+    }
+
+    .slot .sl-emoji {
+      font-size: 1.9rem;
+    }
+
+    .slot .sl-label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0 4px;
+      margin-top: 3px;
+    }
+
+    .slot.filled .sl-label {
+      color: var(--sun);
+    }
+
+    .slot .sl-name {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    .slot-arrow {
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 1.2rem;
+    }
+
+    .game-feedback {
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      min-height: 26px;
+    }
+
+    .game-feedback.ok {
+      color: var(--green-pale);
+    }
+
+    .game-feedback.no {
+      color: #ffb3c1;
+    }
+
+    .game-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: none;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-sun {
+      background: var(--sun);
+      color: var(--green-dark);
+    }
+
+    .btn-sun:hover {
+      background: #ffc107;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* ENERGY BOX */
+    .energy-box {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      color: white;
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 28px;
+    }
+
+    .energy-box h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      color: var(--sun);
+    }
+
+    .pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+
+    .p-level {
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .p-pct {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50px;
+      padding: 2px 10px;
+      font-size: 0.72rem;
+    }
+
+    .energy-text {
+      color: var(--green-pale);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    /* QUIZ */
+    .quiz-box {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    .quiz-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .qdot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #dde8dd;
+    }
+
+    .qdot.done {
+      background: var(--green-light);
+    }
+
+    .qdot.curr {
+      background: var(--sun);
+    }
+
+    .quiz-q {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .quiz-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .quiz-opts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .qopt {
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 2px solid #dde8dd;
+      background: var(--bg);
+      font-family: 'Nunito';
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+
+    .qopt:hover:not(:disabled) {
+      border-color: var(--green-light);
+      background: #f0fbf4;
+    }
+
+    .qopt.correct {
+      border-color: var(--green-light);
+      background: #d8f3dc;
+      color: var(--green-dark);
+    }
+
+    .qopt.wrong {
+      border-color: var(--red);
+      background: #ffe0e6;
+      color: #9b0000;
+    }
+
+    .quiz-fb {
+      font-size: 0.88rem;
+      font-weight: 700;
+      min-height: 22px;
+    }
+
+    .quiz-fb.ok {
+      color: var(--green-mid);
+    }
+
+    .quiz-fb.no {
+      color: var(--red);
+    }
+
+    /* BIO/ABIO TAB */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 500px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    .info-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      padding: 4px 11px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .tag.bio {
+      background: #d8f3dc;
+      color: #1a3d2b;
+    }
+
+    .tag.abio {
+      background: #dde8f5;
+      color: #023e8a;
+    }
+
+    /* SORT GAME */
+    .sort-game {
+      background: var(--green-dark);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 28px;
+      color: white;
+    }
+
+    .sort-game h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .sort-pool {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      justify-content: center;
+      min-height: 54px;
+      margin-bottom: 18px;
+    }
+
+    .scard {
+      background: white;
+      color: var(--green-dark);
+      padding: 9px 14px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid white;
+      user-select: none;
+    }
+
+    .scard:hover {
+      transform: scale(1.05);
+    }
+
+    .scard.sel {
+      background: var(--sun);
+      border-color: var(--sun);
+    }
+
+    .scard.gone {
+      display: none;
+    }
+
+    .sort-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 480px) {
+      .sort-cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .scol {
+      border: 2px dashed rgba(255, 255, 255, 0.35);
+      border-radius: 16px;
+      padding: 14px;
+      min-height: 120px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .scol:hover {
+      border-color: var(--sun);
+      background: rgba(255, 209, 102, 0.07);
+    }
+
+    .scol h4 {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .scol.bio-col h4 {
+      color: var(--green-pale);
+    }
+
+    .scol.abio-col h4 {
+      color: var(--sky);
+    }
+
+    .placed-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .pcard {
+      padding: 5px 11px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pcard.ok {
+      background: rgba(183, 228, 199, 0.25);
+      color: var(--green-pale);
+      border: 1px solid rgba(183, 228, 199, 0.4);
+    }
+
+    .pcard.no {
+      background: rgba(239, 35, 60, 0.25);
+      color: #ffb3c1;
+      border: 1px solid rgba(239, 35, 60, 0.4);
+    }
+
+    /* AREAS */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 13px;
+      margin-bottom: 28px;
+      align-items: start;
+    }
+
+    .area-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .area-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .area-card.open {
+      box-shadow: 0 0 0 3px var(--green-light);
+    }
+
+    .area-head {
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .a-emoji {
+      font-size: 1.9rem;
+    }
+
+    .a-title {
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--green-dark);
+    }
+
+    .a-sub {
+      font-size: 0.72rem;
+      color: var(--text-light);
+    }
+
+    .area-body {
+      display: none;
+      padding: 0 14px 14px;
+    }
+
+    .area-body.show {
+      display: block;
+    }
+
+    .fgroup {
+      margin-bottom: 10px;
+    }
+
+    .fg-title {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 5px;
+    }
+
+    .fg-title.bio {
+      color: var(--green-mid);
+    }
+
+    .fg-title.abio {
+      color: var(--sky-dark);
+    }
+
+    .fitem {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      padding: 4px 10px;
+      border-radius: 7px;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    .fitem.bio {
+      background: #f0fbf4;
+    }
+
+    .fitem.abio {
+      background: #f0f5fb;
+    }
+
+    .fitem::before {
+      content: '•';
+      flex-shrink: 0;
+    }
+
+    .fitem.bio::before {
+      color: var(--green-light);
+    }
+
+    .fitem.abio::before {
+      color: var(--sky-dark);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes pop {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.25);
+      }
+    }
+
+    .pop {
+      animation: pop 0.35s ease;
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0)
+      }
+
+      25% {
+        transform: translateX(-6px)
+      }
+
+      75% {
+        transform: translateX(6px)
+      }
+    }
+
+    .shake {
+      animation: shake 0.3s ease;
+    }
+
+    /* FOOD WEB */
+    .web-box {
+      background: white;
+      border-radius: 16px;
+      padding: 16px 12px 8px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      overflow-x: auto;
+    }
+
+    .web-legend {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .web-legend span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .leg-line {
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+    }
+
+    /* WEB GAME */
+    .web-nodes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .wnode {
+      background: white;
+      border-radius: 14px;
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid #dde8dd;
+      text-align: center;
+      min-width: 100px;
+      color: var(--green-dark);
+    }
+
+    .wnode:hover {
+      border-color: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .wnode.predator {
+      background: var(--sun);
+      border-color: #e6b800;
+      box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.35);
+    }
+
+    .wnode.done {
+      background: #d8f3dc;
+      border-color: var(--green-light);
+    }
+
+    .conn-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      justify-content: center;
+      min-height: 34px;
+      margin-bottom: 12px;
+    }
+
+    .conn-badge {
+      background: rgba(183, 228, 199, 0.35);
+      border: 1px solid var(--green-light);
+      border-radius: 50px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <h1>🌿 Næringskjeder og Økosystemer</h1>
-</header>
+  <header>
+    <h1>🌿 Næringskjeder og Økosystemer</h1>
+  </header>
 
-<nav class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('naering',this)">🔗 Næringskjeder og næringsnett</button>
-  <button class="tab-btn" onclick="switchTab('faktorer',this)">🌍 Biotiske og abiotiske faktorer</button>
-</nav>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('naering',this)">🔗 Næringskjeder og næringsnett</button>
+    <button class="tab-btn" onclick="switchTab('faktorer',this)">🌍 Biotiske og abiotiske faktorer</button>
+  </nav>
 
-<!-- ============ TAB 1 ============ -->
-<div id="tab-naering" class="tab-content active">
+  <!-- ============ TAB 1 ============ -->
+  <div id="tab-naering" class="tab-content active">
 
-  <h2 class="section-title">📖 Nøkkelbegreper</h2>
-  <div class="concept-grid">
-    <div class="concept-card produsent">
-      <div class="c-emoji">🌱</div>
-      <div class="c-tag">Første ledd</div>
-      <div class="c-title">Produsent</div>
-      <div class="c-text">Lager mat ved fotosyntese – bruker sollys, vann og CO₂ til å lage sukker. Har klorofyll.</div>
-      <div class="c-ex">Eks: planter, alger</div>
+    <h2 class="section-title">📖 Nøkkelbegreper</h2>
+    <div class="concept-grid">
+      <div class="concept-card produsent">
+        <div class="c-emoji">🌱</div>
+        <div class="c-tag">Første ledd</div>
+        <div class="c-title">Produsent</div>
+        <div class="c-text">Lager mat ved fotosyntese – bruker sollys, vann og CO₂ til å lage sukker. Har klorofyll.
+        </div>
+        <div class="c-ex">Eks: planter, alger</div>
+      </div>
+      <div class="concept-card f1">
+        <div class="c-emoji">🐇</div>
+        <div class="c-tag">Andre ledd</div>
+        <div class="c-title">Førsteforbruker</div>
+        <div class="c-text">Planteeter. Mangler klorofyll og er helt avhengige av å spise andre organismer for å få
+          energi.</div>
+        <div class="c-ex">Eks: hare, rein, ekorn</div>
+      </div>
+      <div class="concept-card f2">
+        <div class="c-emoji">🦊</div>
+        <div class="c-tag">Tredje ledd</div>
+        <div class="c-title">Andreforbruker</div>
+        <div class="c-text">Kjøtteter/rovdyr som spiser planteetere.</div>
+        <div class="c-ex">Eks: rev, hønsehauk</div>
+      </div>
+      <div class="concept-card f3">
+        <div class="c-emoji">🦅</div>
+        <div class="c-tag">Fjerde ledd</div>
+        <div class="c-title">Tredjeforbruker</div>
+        <div class="c-text">Spiser kjøttetere. Øverst i kjeden – toppkonsument.</div>
+        <div class="c-ex">Eks: kongeørn, ulv</div>
+      </div>
+      <div class="concept-card alteter">
+        <div class="c-emoji">🐻</div>
+        <div class="c-tag">Fleksibelt ledd</div>
+        <div class="c-title">Alteter</div>
+        <div class="c-text">Spiser både planter og kjøtt. Har ingen fast plass i næringskjeden.</div>
+        <div class="c-ex">Eks: bjørn, rev, menneske</div>
+      </div>
+      <div class="concept-card nedbryter">
+        <div class="c-emoji">🍄</div>
+        <div class="c-tag">Siste ledd</div>
+        <div class="c-title">Nedbryter</div>
+        <div class="c-text">Bryter ned døde organismer og fører næringsstoffer tilbake til jorda.</div>
+        <div class="c-ex">Eks: sopp, bakterier, meitemark</div>
+      </div>
     </div>
-    <div class="concept-card f1">
-      <div class="c-emoji">🐇</div>
-      <div class="c-tag">Andre ledd</div>
-      <div class="c-title">Førsteforbruker</div>
-      <div class="c-text">Planteeter. Mangler klorofyll og er helt avhengige av å spise andre organismer for å få energi.</div>
-      <div class="c-ex">Eks: hare, rein, ekorn</div>
+
+    <div class="section-divider"></div>
+    <h2 class="section-title">⛓️ Eksempel på næringskjede</h2>
+
+    <div class="chain-display">
+      <div class="chain-item">
+        <div class="ci-emoji">🌿</div>
+        <div class="ci-name">Plante</div>
+        <div class="ci-role">Produsent</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item">
+        <div class="ci-emoji">🐇</div>
+        <div class="ci-name">Hare</div>
+        <div class="ci-role">1. forbruker</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item">
+        <div class="ci-emoji">🦊</div>
+        <div class="ci-name">Rev</div>
+        <div class="ci-role">2. forbruker</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item">
+        <div class="ci-emoji">🦅</div>
+        <div class="ci-name">Kongeørn</div>
+        <div class="ci-role">3. forbruker</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item">
+        <div class="ci-emoji">🍄</div>
+        <div class="ci-name">Sopp/bakterier</div>
+        <div class="ci-role">Nedbryter</div>
+      </div>
     </div>
-    <div class="concept-card f2">
-      <div class="c-emoji">🦊</div>
-      <div class="c-tag">Tredje ledd</div>
-      <div class="c-title">Andreforbruker</div>
-      <div class="c-text">Kjøtteter/rovdyr som spiser planteetere.</div>
-      <div class="c-ex">Eks: rev, hønsehauk</div>
+
+    <div class="section-divider"></div>
+    <h2 class="section-title">🕸️ Fra næringskjede til næringsnett</h2>
+
+    <div class="two-col">
+      <div class="info-card" style="border-left:4px solid var(--green-light)">
+        <h3>⛓️ Næringskjede – forenklet</h3>
+        <p>Viser <strong>én linje</strong> fra produsent til toppkonsument. En nyttig forenkling, men ikke slik naturen
+          faktisk fungerer.</p>
+        <div
+          style="margin-top:10px;padding:8px;background:var(--bg);border-radius:8px;font-size:0.88rem;color:var(--text-light);text-align:center;letter-spacing:0.05em">
+          🌿 → 🐇 → 🦊 → 🦅</div>
+      </div>
+      <div class="info-card" style="border-left:4px solid var(--sky-dark)">
+        <h3>🕸️ Næringsnett – virkeligheten</h3>
+        <p>De fleste dyr spiser <strong>mer enn én type mat</strong> og har <strong>flere fiender</strong>. Mange
+          næringskjeder satt sammen danner et næringsnett – også kalt næringsvev.</p>
+      </div>
     </div>
-    <div class="concept-card f3">
-      <div class="c-emoji">🦅</div>
-      <div class="c-tag">Fjerde ledd</div>
-      <div class="c-title">Tredjeforbruker</div>
-      <div class="c-text">Spiser kjøttetere. Øverst i kjeden – toppkonsument.</div>
-      <div class="c-ex">Eks: kongeørn, ulv</div>
+
+    <div class="web-box">
+      <svg viewBox="0 0 540 278" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:280px;display:block">
+        <defs>
+          <marker id="ag" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+            <polygon points="0 0,7 3,0 6" fill="#52b788" />
+          </marker>
+          <marker id="ao" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+            <polygon points="0 0,7 3,0 6" fill="#f4a261" />
+          </marker>
+          <marker id="ar" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+            <polygon points="0 0,7 3,0 6" fill="#c1121f" />
+          </marker>
+        </defs>
+        <!-- Green: Produsent → 1.forbruker -->
+        <line x1="90" y1="218" x2="91" y2="182" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
+        <line x1="113" y1="229" x2="265" y2="170" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
+        <line x1="290" y1="218" x2="290" y2="182" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
+        <!-- Orange: 1.forbruker → 2.forbruker -->
+        <line x1="109" y1="128" x2="148" y2="82" stroke="#f4a261" stroke-width="2" marker-end="url(#ao)" />
+        <line x1="272" y1="130" x2="190" y2="80" stroke="#f4a261" stroke-width="2" marker-end="url(#ao)" />
+        <!-- Red: → Toppkonsument -->
+        <line x1="115" y1="124" x2="390" y2="69" stroke="#c1121f" stroke-width="1.8" marker-end="url(#ar)" />
+        <line x1="308" y1="128" x2="395" y2="72" stroke="#c1121f" stroke-width="1.8" marker-end="url(#ar)" />
+        <line x1="196" y1="55" x2="390" y2="55" stroke="#c1121f" stroke-width="1.8" marker-end="url(#ar)" />
+        <!-- Organisms -->
+        <circle cx="90" cy="244" r="27" fill="white" stroke="#52b788" stroke-width="2" />
+        <text x="90" y="238" text-anchor="middle" font-size="21">🌿</text>
+        <text x="90" y="252" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+          font-family="Nunito,sans-serif">Gress</text>
+        <text x="90" y="263" text-anchor="middle" font-size="7.5" fill="#4a6045"
+          font-family="Nunito,sans-serif">Produsent</text>
+
+        <circle cx="290" cy="244" r="27" fill="white" stroke="#52b788" stroke-width="2" />
+        <text x="290" y="238" text-anchor="middle" font-size="21">🌲</text>
+        <text x="290" y="252" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+          font-family="Nunito,sans-serif">Gran</text>
+        <text x="290" y="263" text-anchor="middle" font-size="7.5" fill="#4a6045"
+          font-family="Nunito,sans-serif">Produsent</text>
+
+        <circle cx="90" cy="152" r="27" fill="white" stroke="#f4a261" stroke-width="2" />
+        <text x="90" y="146" text-anchor="middle" font-size="21">🐇</text>
+        <text x="90" y="160" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+          font-family="Nunito,sans-serif">Hare</text>
+        <text x="90" y="171" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">1.
+          forbruker</text>
+
+        <circle cx="290" cy="152" r="27" fill="white" stroke="#f4a261" stroke-width="2" />
+        <text x="290" y="146" text-anchor="middle" font-size="21">🐿️</text>
+        <text x="290" y="160" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+          font-family="Nunito,sans-serif">Ekorn</text>
+        <text x="290" y="171" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">1.
+          forbruker</text>
+
+        <circle cx="165" cy="55" r="27" fill="white" stroke="#e76f51" stroke-width="2" />
+        <text x="165" y="49" text-anchor="middle" font-size="21">🦊</text>
+        <text x="165" y="63" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+          font-family="Nunito,sans-serif">Rev</text>
+        <text x="165" y="74" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">2.
+          forbruker</text>
+
+        <circle cx="425" cy="55" r="27" fill="white" stroke="#c1121f" stroke-width="2" />
+        <text x="425" y="49" text-anchor="middle" font-size="21">🦅</text>
+        <text x="425" y="63" text-anchor="middle" font-size="8.5" fill="#1a3d2b" font-weight="bold"
+          font-family="Nunito,sans-serif">Kongeørn</text>
+        <text x="425" y="74" text-anchor="middle" font-size="7.5" fill="#4a6045" font-family="Nunito,sans-serif">3.
+          forbruker</text>
+      </svg>
+      <div class="web-legend">
+        <span><span class="leg-line" style="background:#52b788"></span> Produsent → 1. forbruker</span>
+        <span><span class="leg-line" style="background:#f4a261"></span> 1. → 2. forbruker</span>
+        <span><span class="leg-line" style="background:#c1121f"></span> → Toppkonsument</span>
+      </div>
     </div>
-    <div class="concept-card alteter">
-      <div class="c-emoji">🐻</div>
-      <div class="c-tag">Fleksibelt ledd</div>
-      <div class="c-title">Alteter</div>
-      <div class="c-text">Spiser både planter og kjøtt. Har ingen fast plass i næringskjeden.</div>
-      <div class="c-ex">Eks: bjørn, rev, menneske</div>
+
+    <h2 class="section-title">🎮 Næringsnett-spill: Hvem spiser hvem?</h2>
+
+    <div class="game-box">
+      <div class="score-row">
+        <div class="badge badge-sun">⭐ Poeng: <span id="wscore">0</span></div>
+        <div class="badge badge-ghost">Funnet: <span id="wfound">0</span> / 8 forbindelser</div>
+      </div>
+      <h3>Koble næringsnett!</h3>
+      <p class="game-desc" id="winstr">Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 8
+        forbindelsene!</p>
+      <div class="web-nodes" id="wnodes"></div>
+      <div class="conn-list" id="wconns"></div>
+      <div class="game-feedback" id="wfb"></div>
+      <div class="game-btns">
+        <button class="btn btn-ghost" onclick="resetWebGame()">↺ Start på nytt</button>
+      </div>
     </div>
-    <div class="concept-card nedbryter">
-      <div class="c-emoji">🍄</div>
-      <div class="c-tag">Siste ledd</div>
-      <div class="c-title">Nedbryter</div>
-      <div class="c-text">Bryter ned døde organismer og fører næringsstoffer tilbake til jorda.</div>
-      <div class="c-ex">Eks: sopp, bakterier, meitemark</div>
+
+    <div class="section-divider"></div>
+    <h2 class="section-title">🎮 Bygg næringskjeden!</h2>
+
+    <div class="game-box">
+      <div class="score-row">
+        <div class="badge badge-sun">⭐ Poeng: <span id="gscore">0</span></div>
+        <div class="badge badge-ghost">Oppgave <span id="glevel">1</span> / 4</div>
+      </div>
+      <h3 id="gtitle">Norsk fjell</h3>
+      <p class="game-desc" id="ginstr">Klikk på organismer i riktig rekkefølge – fra produsent til toppkonsument.</p>
+      <div class="game-scene" id="gscene"></div>
+      <div class="chain-slots" id="gslots"></div>
+      <div class="game-feedback" id="gfb"></div>
+      <div class="game-btns">
+        <button class="btn btn-ghost" onclick="resetLevel()">↺ Start på nytt</button>
+        <button class="btn btn-sun" id="gnext" onclick="nextLevel()" style="display:none">Neste oppgave →</button>
+      </div>
     </div>
+
+    <div class="section-divider"></div>
+    <h2 class="section-title">⚡ Energitap i næringskjeden</h2>
+
+    <div class="energy-box">
+      <h3>10 %-regelen</h3>
+      <div class="pyramid">
+        <div class="p-level" style="width:28%;background:rgba(193,18,31,0.2);border:1px solid rgba(193,18,31,0.4)">
+          <span>🦅 3. forbrukere</span><span class="p-pct">0,1 %</span>
+        </div>
+        <div class="p-level" style="width:48%;background:rgba(231,111,81,0.2);border:1px solid rgba(231,111,81,0.4)">
+          <span>🦊 2. forbrukere</span><span class="p-pct">1 %</span>
+        </div>
+        <div class="p-level" style="width:68%;background:rgba(244,162,97,0.2);border:1px solid rgba(244,162,97,0.4)">
+          <span>🐇 1. forbrukere</span><span class="p-pct">10 %</span>
+        </div>
+        <div class="p-level" style="width:88%;background:rgba(255,209,102,0.2);border:1px solid rgba(255,209,102,0.4)">
+          <span>🌱 Produsenter</span><span class="p-pct">100 %</span>
+        </div>
+      </div>
+      <p class="energy-text">Bare ca. <strong>10 %</strong> av energien i hvert ledd videreføres til neste. Resten
+        brukes til bevegelse, vekst og varme – derfor er det alltid mange flere planter enn rovdyr i et naturområde.</p>
+    </div>
+
+    <div class="section-divider"></div>
+    <h2 class="section-title">❓ Quiz</h2>
+
+    <div class="quiz-box">
+      <div class="quiz-progress" id="qprog"></div>
+      <div class="quiz-q" id="qq"></div>
+      <div class="quiz-opts" id="qopts"></div>
+      <div class="quiz-fb" id="qfb"></div>
+      <div style="margin-top:12px">
+        <button class="btn btn-sun" id="qnext" onclick="nextQ()" style="display:none">Neste spørsmål →</button>
+      </div>
+    </div>
+
   </div>
 
-  <div class="section-divider"></div>
-  <h2 class="section-title">⛓️ Eksempel på næringskjede</h2>
+  <!-- ============ TAB 2 ============ -->
+  <div id="tab-faktorer" class="tab-content">
 
-  <div class="chain-display">
-    <div class="chain-item"><div class="ci-emoji">🌿</div><div class="ci-name">Plante</div><div class="ci-role">Produsent</div></div>
-    <div class="chain-arrow">→</div>
-    <div class="chain-item"><div class="ci-emoji">🐇</div><div class="ci-name">Hare</div><div class="ci-role">1. forbruker</div></div>
-    <div class="chain-arrow">→</div>
-    <div class="chain-item"><div class="ci-emoji">🦊</div><div class="ci-name">Rev</div><div class="ci-role">2. forbruker</div></div>
-    <div class="chain-arrow">→</div>
-    <div class="chain-item"><div class="ci-emoji">🦅</div><div class="ci-name">Kongeørn</div><div class="ci-role">3. forbruker</div></div>
-    <div class="chain-arrow">→</div>
-    <div class="chain-item"><div class="ci-emoji">🍄</div><div class="ci-name">Sopp/bakterier</div><div class="ci-role">Nedbryter</div></div>
+    <h2 class="section-title">📖 Hva er biotiske og abiotiske faktorer?</h2>
+    <div class="two-col">
+      <div class="info-card" style="border-left:4px solid var(--green-light)">
+        <h3>🌿 Biotiske faktorer</h3>
+        <p>Alt som er <strong>levende</strong> i et økosystem – og samspillet mellom dem.</p>
+        <div class="tags">
+          <span class="tag bio">Planter</span><span class="tag bio">Dyr</span><span class="tag bio">Sopp</span>
+          <span class="tag bio">Bakterier</span><span class="tag bio">Konkurranse</span><span class="tag bio">Hvem
+            spiser hva</span>
+        </div>
+      </div>
+      <div class="info-card" style="border-left:4px solid var(--sky-dark)">
+        <h3>🌡️ Abiotiske faktorer</h3>
+        <p>Alt som er <strong>ikke-levende</strong> – påvirker hvilke organismer som kan leve der.</p>
+        <div class="tags">
+          <span class="tag abio">Temperatur</span><span class="tag abio">Nedbør</span><span
+            class="tag abio">Sollys</span>
+          <span class="tag abio">Vind</span><span class="tag abio">Jordtype</span><span
+            class="tag abio">Saltinnhold</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+    <h2 class="section-title">🎮 Sorter faktorene!</h2>
+
+    <div class="sort-game">
+      <div class="score-row">
+        <div class="badge badge-sun">⭐ Poeng: <span id="sscore">0</span></div>
+      </div>
+      <h3>Biotisk eller abiotisk?</h3>
+      <p class="game-desc">Klikk på et kort, deretter på riktig kolonne. Er faktoren levende (biotisk) eller
+        ikke-levende (abiotisk)?</p>
+      <div class="sort-pool" id="spool"></div>
+      <div class="sort-cols">
+        <div class="scol bio-col" onclick="dropCol('bio')">
+          <h4>🌿 BIOTISK (levende)</h4>
+          <div class="placed-wrap" id="bioplaced"></div>
+        </div>
+        <div class="scol abio-col" onclick="dropCol('abio')">
+          <h4>🌡️ ABIOTISK (ikke-levende)</h4>
+          <div class="placed-wrap" id="abioplaced"></div>
+        </div>
+      </div>
+      <div class="game-feedback" id="sfb"></div>
+      <div class="game-btns">
+        <button class="btn btn-ghost" onclick="initSort()">↺ Start på nytt</button>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+    <h2 class="section-title">🗺️ Utforsk norske naturområder</h2>
+    <p style="color:var(--text-light);margin-bottom:18px;font-size:0.88rem">Klikk på et naturområde for å se biotiske og
+      abiotiske faktorer der.</p>
+    <div class="areas-grid" id="areas"></div>
+
   </div>
 
-  <div class="section-divider"></div>
-  <h2 class="section-title">🎮 Bygg næringskjeden!</h2>
+  <footer style="background:#d8f3dc;padding:10px 24px;text-align:right;">
+    <span style="font-size:0.75rem;color:#2d6a4f;font-family:'Nunito',sans-serif;font-weight:600;">Theodor
+      Sandaker</span>
+  </footer>
 
-  <div class="game-box">
-    <div class="score-row">
-      <div class="badge badge-sun">⭐ Poeng: <span id="gscore">0</span></div>
-      <div class="badge badge-ghost">Oppgave <span id="glevel">1</span> / 4</div>
-    </div>
-    <h3 id="gtitle">Norsk fjell</h3>
-    <p class="game-desc" id="ginstr">Klikk på organismer i riktig rekkefølge – fra produsent til toppkonsument.</p>
-    <div class="game-scene" id="gscene"></div>
-    <div class="chain-slots" id="gslots"></div>
-    <div class="game-feedback" id="gfb"></div>
-    <div class="game-btns">
-      <button class="btn btn-ghost" onclick="resetLevel()">↺ Start på nytt</button>
-      <button class="btn btn-sun" id="gnext" onclick="nextLevel()" style="display:none">Neste oppgave →</button>
-    </div>
-  </div>
+  <script>
+    // ─── TABS ───────────────────────────────────────────────────
+    function switchTab(name, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
 
-  <div class="section-divider"></div>
-  <h2 class="section-title">⚡ Energitap i næringskjeden</h2>
+    // ─── WEB GAME ───────────────────────────────────────────────
+    const webOrgs = [
+      { id: 0, e: "🌿", n: "Gress" },
+      { id: 1, e: "🌲", n: "Gran" },
+      { id: 2, e: "🐇", n: "Hare" },
+      { id: 3, e: "🐿️", n: "Ekorn" },
+      { id: 4, e: "🦊", n: "Rev" },
+      { id: 5, e: "🦅", n: "Kongeørn" }
+    ];
+    // Valid pairs: [predator_id, prey_id]
+    const validConns = [[2, 0], [3, 0], [3, 1], [4, 2], [4, 3], [5, 2], [5, 3], [5, 4]];
+    let wScore = 0, wFound = [], wPredator = null;
 
-  <div class="energy-box">
-    <h3>10 %-regelen</h3>
-    <div class="pyramid">
-      <div class="p-level" style="width:28%;background:rgba(193,18,31,0.2);border:1px solid rgba(193,18,31,0.4)">
-        <span>🦅 3. forbrukere</span><span class="p-pct">0,1 %</span>
-      </div>
-      <div class="p-level" style="width:48%;background:rgba(231,111,81,0.2);border:1px solid rgba(231,111,81,0.4)">
-        <span>🦊 2. forbrukere</span><span class="p-pct">1 %</span>
-      </div>
-      <div class="p-level" style="width:68%;background:rgba(244,162,97,0.2);border:1px solid rgba(244,162,97,0.4)">
-        <span>🐇 1. forbrukere</span><span class="p-pct">10 %</span>
-      </div>
-      <div class="p-level" style="width:88%;background:rgba(255,209,102,0.2);border:1px solid rgba(255,209,102,0.4)">
-        <span>🌱 Produsenter</span><span class="p-pct">100 %</span>
-      </div>
-    </div>
-    <p class="energy-text">Bare ca. <strong>10 %</strong> av energien i hvert ledd videreføres til neste. Resten brukes til bevegelse, vekst og varme – derfor er det alltid mange flere planter enn rovdyr i et naturområde.</p>
-  </div>
+    function initWebGame() {
+      wScore = 0; wFound = []; wPredator = null;
+      document.getElementById('wscore').textContent = 0;
+      document.getElementById('wfound').textContent = 0;
+      document.getElementById('wfb').textContent = '';
+      document.getElementById('wfb').className = 'game-feedback';
+      document.getElementById('wconns').innerHTML = '';
+      document.getElementById('winstr').textContent = 'Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 8 forbindelsene!';
+      const nodesEl = document.getElementById('wnodes');
+      nodesEl.innerHTML = '';
+      webOrgs.forEach(o => {
+        const el = document.createElement('div');
+        el.className = 'wnode'; el.dataset.id = o.id;
+        el.innerHTML = `${o.e}<br><span style="font-size:0.75rem">${o.n}</span>`;
+        el.addEventListener('click', () => webNodeClick(o.id, el));
+        nodesEl.appendChild(el);
+      });
+    }
 
-  <div class="section-divider"></div>
-  <h2 class="section-title">❓ Quiz</h2>
+    function webNodeClick(id, el) {
+      if (wPredator === null) {
+        // Select as predator
+        document.querySelectorAll('.wnode').forEach(n => n.classList.remove('predator'));
+        wPredator = id;
+        el.classList.add('predator');
+        const name = webOrgs[id].n;
+        document.getElementById('winstr').textContent = `${webOrgs[id].e} ${name} spiser… klikk på byttet!`;
+        document.getElementById('wfb').textContent = '';
+        document.getElementById('wfb').className = 'game-feedback';
+      } else {
+        if (id === wPredator) {
+          // Deselect
+          document.querySelectorAll('.wnode').forEach(n => n.classList.remove('predator'));
+          wPredator = null;
+          document.getElementById('winstr').textContent = 'Klikk på et dyr som SPISER, og deretter på hva det spiser.';
+          return;
+        }
+        // Check connection
+        const pairKey = `${wPredator}-${id}`;
+        const isValid = validConns.some(([p, r]) => p === wPredator && r === id);
+        const alreadyFound = wFound.includes(pairKey);
+        const fb = document.getElementById('wfb');
+        if (alreadyFound) {
+          fb.textContent = 'Du har allerede funnet den forbindelsen!'; fb.className = 'game-feedback ok';
+        } else if (isValid) {
+          wFound.push(pairKey); wScore += 5;
+          document.getElementById('wscore').textContent = wScore;
+          document.getElementById('wfound').textContent = wFound.length;
+          const badge = document.createElement('div');
+          badge.className = 'conn-badge';
+          badge.textContent = `${webOrgs[wPredator].e} ${webOrgs[wPredator].n} spiser ${webOrgs[id].e} ${webOrgs[id].n}`;
+          document.getElementById('wconns').appendChild(badge);
+          fb.textContent = `✅ Riktig! ${webOrgs[wPredator].n} spiser ${webOrgs[id].n}.`; fb.className = 'game-feedback ok';
+          if (wFound.length === validConns.length) {
+            setTimeout(() => { fb.textContent = `🎉 Perfekt! Du fant alle forbindelsene i næringsnettet! ${wScore} poeng!`; }, 400);
+          }
+        } else {
+          fb.textContent = `❌ ${webOrgs[wPredator].n} spiser ikke ${webOrgs[id].n}. Prøv igjen!`; fb.className = 'game-feedback no';
+          document.querySelectorAll('.wnode')[id].classList.add('shake');
+          setTimeout(() => document.querySelectorAll('.wnode')[id].classList.remove('shake'), 400);
+        }
+        document.querySelectorAll('.wnode').forEach(n => n.classList.remove('predator'));
+        wPredator = null;
+        document.getElementById('winstr').textContent = 'Klikk på et dyr som SPISER, og deretter på hva det spiser.';
+      }
+    }
 
-  <div class="quiz-box">
-    <div class="quiz-progress" id="qprog"></div>
-    <div class="quiz-q" id="qq"></div>
-    <div class="quiz-opts" id="qopts"></div>
-    <div class="quiz-fb" id="qfb"></div>
-    <div style="margin-top:12px">
-      <button class="btn btn-sun" id="qnext" onclick="nextQ()" style="display:none">Neste spørsmål →</button>
-    </div>
-  </div>
+    function resetWebGame() { initWebGame(); }
 
-</div>
+    // ─── GAME DATA ───────────────────────────────────────────────
+    const levels = [
+      {
+        name: "Norsk fjell", orgs: [
+          { e: "🌿", n: "Reinlav", r: "Produsent", pos: { top: "65%", left: "18%" } },
+          { e: "🦌", n: "Villrein", r: "1. forbruker", pos: { top: "50%", left: "55%" } },
+          { e: "🐺", n: "Ulv", r: "2. forbruker", pos: { top: "30%", left: "72%" } },
+          { e: "🦅", n: "Kongeørn", r: "3. forbruker", pos: { top: "12%", left: "38%" } }
+        ], correct: [0, 1, 2, 3]
+      },
+      {
+        name: "Osloskogen", orgs: [
+          { e: "🌲", n: "Gran", r: "Produsent", pos: { top: "58%", left: "18%" } },
+          { e: "🐿️", n: "Ekorn", r: "1. forbruker", pos: { top: "52%", left: "62%" } },
+          { e: "🦊", n: "Rev", r: "2. forbruker", pos: { top: "62%", left: "42%" } },
+          { e: "🦅", n: "Hønsehauk", r: "3. forbruker", pos: { top: "12%", left: "58%" } }
+        ], correct: [0, 1, 2, 3]
+      },
+      {
+        name: "Havet (Barentshavet)", orgs: [
+          { e: "🌊", n: "Planteplankton", r: "Produsent", pos: { top: "68%", left: "70%" } },
+          { e: "🦐", n: "Dyreplankton", r: "1. forbruker", pos: { top: "62%", left: "32%" } },
+          { e: "🐟", n: "Sild", r: "2. forbruker", pos: { top: "42%", left: "54%" } },
+          { e: "🐳", n: "Hval", r: "3. forbruker", pos: { top: "22%", left: "22%" } }
+        ], correct: [0, 1, 2, 3]
+      },
+      {
+        name: "Svalbard", orgs: [
+          { e: "🌿", n: "Polarvier", r: "Produsent", pos: { top: "70%", left: "72%" } },
+          { e: "🦌", n: "Svalbardrein", r: "1. forbruker", pos: { top: "55%", left: "28%" } },
+          { e: "🦊", n: "Arktisk rev", r: "2. forbruker", pos: { top: "40%", left: "16%" } },
+          { e: "🐻", n: "Isbjørn", r: "3. forbruker", pos: { top: "18%", left: "54%" } }
+        ], correct: [0, 1, 2, 3]
+      }
+    ];
 
-<!-- ============ TAB 2 ============ -->
-<div id="tab-faktorer" class="tab-content">
+    let curLevel = 0, gScore = 0, selOrg = null, filled = [];
 
-  <h2 class="section-title">📖 Hva er biotiske og abiotiske faktorer?</h2>
-  <div class="two-col">
-    <div class="info-card" style="border-left:4px solid var(--green-light)">
-      <h3>🌿 Biotiske faktorer</h3>
-      <p>Alt som er <strong>levende</strong> i et økosystem – og samspillet mellom dem.</p>
-      <div class="tags">
-        <span class="tag bio">Planter</span><span class="tag bio">Dyr</span><span class="tag bio">Sopp</span>
-        <span class="tag bio">Bakterier</span><span class="tag bio">Konkurranse</span><span class="tag bio">Hvem spiser hva</span>
-      </div>
-    </div>
-    <div class="info-card" style="border-left:4px solid var(--sky-dark)">
-      <h3>🌡️ Abiotiske faktorer</h3>
-      <p>Alt som er <strong>ikke-levende</strong> – påvirker hvilke organismer som kan leve der.</p>
-      <div class="tags">
-        <span class="tag abio">Temperatur</span><span class="tag abio">Nedbør</span><span class="tag abio">Sollys</span>
-        <span class="tag abio">Vind</span><span class="tag abio">Jordtype</span><span class="tag abio">Saltinnhold</span>
-      </div>
-    </div>
-  </div>
+    function initGame() {
+      curLevel = 0; gScore = 0;
+      document.getElementById('gscore').textContent = 0;
+      loadLevel();
+    }
 
-  <div class="section-divider"></div>
-  <h2 class="section-title">🎮 Sorter faktorene!</h2>
+    function loadLevel() {
+      const lvl = levels[curLevel];
+      document.getElementById('glevel').textContent = curLevel + 1;
+      document.getElementById('gtitle').textContent = lvl.name;
+      document.getElementById('ginstr').textContent = 'Klikk på organismene i riktig rekkefølge – fra produsent til toppkonsument.';
+      document.getElementById('gfb').textContent = '';
+      document.getElementById('gfb').className = 'game-feedback';
+      document.getElementById('gnext').style.display = 'none';
+      selOrg = null; filled = new Array(4).fill(null);
 
-  <div class="sort-game">
-    <div class="score-row">
-      <div class="badge badge-sun">⭐ Poeng: <span id="sscore">0</span></div>
-    </div>
-    <h3>Biotisk eller abiotisk?</h3>
-    <p class="game-desc">Klikk på et kort, deretter på riktig kolonne. Er faktoren levende (biotisk) eller ikke-levende (abiotisk)?</p>
-    <div class="sort-pool" id="spool"></div>
-    <div class="sort-cols">
-      <div class="scol bio-col" onclick="dropCol('bio')">
-        <h4>🌿 BIOTISK (levende)</h4>
-        <div class="placed-wrap" id="bioplaced"></div>
-      </div>
-      <div class="scol abio-col" onclick="dropCol('abio')">
-        <h4>🌡️ ABIOTISK (ikke-levende)</h4>
-        <div class="placed-wrap" id="abioplaced"></div>
-      </div>
-    </div>
-    <div class="game-feedback" id="sfb"></div>
-    <div class="game-btns">
-      <button class="btn btn-ghost" onclick="initSort()">↺ Start på nytt</button>
-    </div>
-  </div>
+      // Scene
+      const scene = document.getElementById('gscene');
+      scene.innerHTML = '';
+      lvl.orgs.forEach((o, i) => {
+        const el = document.createElement('div');
+        el.className = 'scene-org'; el.dataset.i = i;
+        el.style.top = o.pos.top; el.style.left = o.pos.left;
+        el.innerHTML = `<span class="se">${o.e}</span><span class="sn">${o.n}</span>`;
+        el.addEventListener('click', () => pickOrg(i, el));
+        scene.appendChild(el);
+      });
 
-  <div class="section-divider"></div>
-  <h2 class="section-title">🗺️ Utforsk norske naturområder</h2>
-  <p style="color:var(--text-light);margin-bottom:18px;font-size:0.88rem">Klikk på et naturområde for å se biotiske og abiotiske faktorer der.</p>
-  <div class="areas-grid" id="areas"></div>
+      // Slots
+      const sw = document.getElementById('gslots');
+      sw.innerHTML = '';
+      const labels = ['Produsent', '1. forbruker', '2. forbruker', '3. forbruker'];
+      for (let i = 0; i < 4; i++) {
+        const s = document.createElement('div');
+        s.className = 'slot'; s.dataset.s = i;
+        s.innerHTML = `<span class="sl-emoji">?</span><span class="sl-label">${labels[i]}</span>`;
+        s.addEventListener('click', () => fillSlot(i));
+        sw.appendChild(s);
+        if (i < 3) { const ar = document.createElement('span'); ar.className = 'slot-arrow'; ar.textContent = '→'; sw.appendChild(ar); }
+      }
+    }
 
-</div>
+    function pickOrg(i, el) {
+      if (filled.includes(i)) return;
+      document.querySelectorAll('.scene-org').forEach(o => o.classList.remove('sel'));
+      selOrg = (selOrg === i) ? null : i;
+      if (selOrg !== null) el.classList.add('sel');
+    }
 
-<footer style="background:#d8f3dc;padding:10px 24px;text-align:right;">
-  <span style="font-size:0.75rem;color:#2d6a4f;font-family:'Nunito',sans-serif;font-weight:600;">Theodor Sandaker</span>
-</footer>
+    function fillSlot(si) {
+      if (selOrg === null || filled[si] !== null) return;
+      const lvl = levels[curLevel], o = lvl.orgs[selOrg];
+      filled[si] = selOrg;
+      const slots = document.getElementById('gslots').querySelectorAll('.slot');
+      const s = slots[si];
+      s.classList.add('filled');
+      s.innerHTML = `<span class="sl-emoji">${o.e}</span><span class="sl-name">${o.n}</span><span class="sl-label">${o.r}</span>`;
+      document.querySelectorAll('.scene-org')[selOrg].classList.add('used');
+      selOrg = null;
+      if (filled.every(x => x !== null)) checkGame();
+    }
 
-<script>
-// ─── TABS ───────────────────────────────────────────────────
-function switchTab(name, btn) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  btn.classList.add('active');
-}
+    function checkGame() {
+      const ok = levels[curLevel].correct.every((ci, si) => filled[si] === ci);
+      const fb = document.getElementById('gfb');
+      if (ok) {
+        fb.textContent = '✅ Riktig! Godt jobbet!'; fb.className = 'game-feedback ok';
+        gScore += 10; document.getElementById('gscore').textContent = gScore;
+        document.getElementById('gnext').style.display = curLevel < 3 ? 'inline-block' : 'none';
+        if (curLevel === 3) fb.textContent = `🎉 Ferdig! Du fikk ${gScore} poeng totalt!`;
+      } else {
+        fb.textContent = '❌ Ikke helt riktig – prøv igjen!'; fb.className = 'game-feedback no';
+        setTimeout(resetLevel, 1600);
+      }
+    }
+    function resetLevel() { loadLevel(); }
+    function nextLevel() { if (curLevel < 3) { curLevel++; loadLevel(); } }
 
-// ─── GAME DATA ───────────────────────────────────────────────
-const levels = [
-  { name:"Norsk fjell", orgs:[
-    {e:"🌿",n:"Reinlav",r:"Produsent",pos:{top:"65%",left:"18%"}},
-    {e:"🦌",n:"Villrein",r:"1. forbruker",pos:{top:"50%",left:"55%"}},
-    {e:"🐺",n:"Ulv",r:"2. forbruker",pos:{top:"30%",left:"72%"}},
-    {e:"🦅",n:"Kongeørn",r:"3. forbruker",pos:{top:"12%",left:"38%"}}
-  ], correct:[0,1,2,3] },
-  { name:"Osloskogen", orgs:[
-    {e:"🌲",n:"Gran",r:"Produsent",pos:{top:"58%",left:"18%"}},
-    {e:"🐿️",n:"Ekorn",r:"1. forbruker",pos:{top:"52%",left:"62%"}},
-    {e:"🦊",n:"Rev",r:"2. forbruker",pos:{top:"62%",left:"42%"}},
-    {e:"🦅",n:"Hønsehauk",r:"3. forbruker",pos:{top:"12%",left:"58%"}}
-  ], correct:[0,1,2,3] },
-  { name:"Havet (Barentshavet)", orgs:[
-    {e:"🌊",n:"Planteplankton",r:"Produsent",pos:{top:"68%",left:"70%"}},
-    {e:"🦐",n:"Dyreplankton",r:"1. forbruker",pos:{top:"62%",left:"32%"}},
-    {e:"🐟",n:"Sild",r:"2. forbruker",pos:{top:"42%",left:"54%"}},
-    {e:"🐳",n:"Hval",r:"3. forbruker",pos:{top:"22%",left:"22%"}}
-  ], correct:[0,1,2,3] },
-  { name:"Svalbard", orgs:[
-    {e:"🌿",n:"Polarvier",r:"Produsent",pos:{top:"70%",left:"72%"}},
-    {e:"🦌",n:"Svalbardrein",r:"1. forbruker",pos:{top:"55%",left:"28%"}},
-    {e:"🦊",n:"Arktisk rev",r:"2. forbruker",pos:{top:"40%",left:"16%"}},
-    {e:"🐻‍❄️",n:"Isbjørn",r:"3. forbruker",pos:{top:"18%",left:"54%"}}
-  ], correct:[0,1,2,3] }
-];
+    // ─── QUIZ ────────────────────────────────────────────────────
+    const Qs = [
+      {
+        q: "Hva kalles organismer som lager sin egen mat ved fotosyntese?",
+        opts: ["Forbrukere", "Produsenter", "Nedbrytere", "Altetere"], cor: 1,
+        ex: "Planter er produsenter – de bruker sollys, vann og CO₂ til å lage sukker."
+      },
+      {
+        q: "Haren spiser gress. Hva er haren i næringskjeden?",
+        opts: ["Produsent", "Andreforbruker", "Nedbryter", "Førsteforbruker"], cor: 3,
+        ex: "Planteetere er alltid førsteforbrukere."
+      },
+      {
+        q: "Omtrent hvor mye energi videreføres fra ett ledd til neste?",
+        opts: ["50 %", "25 %", "10 %", "90 %"], cor: 2,
+        ex: "Bare ca. 10 % videreføres. Resten brukes til bevegelse, vekst og varme."
+      },
+      {
+        q: "Bjørnen spiser bær og elg. Hva kalles bjørnen?",
+        opts: ["Nedbryter", "Alteter", "Tredjeforbruker", "Produsent"], cor: 1,
+        ex: "Altetere kan spise både planter og dyr og har ingen fast plass i kjeden."
+      },
+      {
+        q: "Hva er et næringsnett?",
+        opts: ["Én enkelt næringskjede", "Et nettverk av mange næringskjeder som overlapper", "Et kart over naturområder", "En oversikt over abiotiske faktorer"], cor: 1,
+        ex: "Næringsnett viser hvordan mange næringskjeder henger sammen."
+      },
+      {
+        q: "Sopp og bakterier bryter ned døde dyr. Hva kalles de?",
+        opts: ["Produsenter", "Altetere", "Nedbrytere", "Andreforbrukere"], cor: 2,
+        ex: "Nedbrytere er viktige – de fører næringsstoffer tilbake til jorda."
+      }
+    ];
+    let qIdx = 0, qDone = false;
 
-let curLevel=0, gScore=0, selOrg=null, filled=[];
+    function initQuiz() { qIdx = 0; qDone = false; renderQ(); }
+    function renderQ() {
+      qDone = false;
+      const q = Qs[qIdx];
+      document.getElementById('qprog').innerHTML = Qs.map((_, i) => `<div class="qdot ${i < qIdx ? 'done' : i === qIdx ? 'curr' : ''}"></div>`).join('');
+      document.getElementById('qq').textContent = `${qIdx + 1}. ${q.q}`;
+      document.getElementById('qfb').textContent = '';
+      document.getElementById('qfb').className = 'quiz-fb';
+      document.getElementById('qnext').style.display = 'none';
+      document.getElementById('qopts').innerHTML = q.opts.map((o, i) => `<button class="qopt" onclick="answerQ(${i})">${o}</button>`).join('');
+    }
+    function answerQ(i) {
+      if (qDone) return; qDone = true;
+      const q = Qs[qIdx];
+      document.querySelectorAll('.qopt').forEach(o => o.disabled = true);
+      const fb = document.getElementById('qfb');
+      if (i === q.cor) {
+        document.querySelectorAll('.qopt')[i].classList.add('correct');
+        fb.textContent = `✅ Riktig! ${q.ex}`; fb.className = 'quiz-fb ok';
+      } else {
+        document.querySelectorAll('.qopt')[i].classList.add('wrong');
+        document.querySelectorAll('.qopt')[q.cor].classList.add('correct');
+        fb.textContent = `❌ Feil. ${q.ex}`; fb.className = 'quiz-fb no';
+      }
+      if (qIdx < Qs.length - 1) document.getElementById('qnext').style.display = 'inline-block';
+      else { setTimeout(() => { fb.textContent = `🏆 Quiz ferdig! Bra jobbet!`; }, 700); }
+    }
+    function nextQ() { qIdx++; renderQ(); }
 
-function initGame() {
-  curLevel=0; gScore=0;
-  document.getElementById('gscore').textContent=0;
-  loadLevel();
-}
+    // ─── SORT GAME ───────────────────────────────────────────────
+    const sortItems = [
+      { t: "🌡️ Temperatur", type: "abio" }, { t: "🌧️ Nedbør", type: "abio" },
+      { t: "☀️ Sollys", type: "abio" }, { t: "💨 Vind", type: "abio" },
+      { t: "🌊 Saltinnhold", type: "abio" }, { t: "🪨 Jordtype", type: "abio" },
+      { t: "❄️ Snødekke", type: "abio" }, { t: "🌲 Gran", type: "bio" },
+      { t: "🦌 Elg", type: "bio" }, { t: "🍄 Sopp", type: "bio" },
+      { t: "🐛 Meitemark", type: "bio" }, { t: "🦊 Rev", type: "bio" },
+      { t: "🌿 Reinlav", type: "bio" }, { t: "🦠 Bakterier", type: "bio" }
+    ];
+    let selCard = null, sScore = 0, placedCount = 0;
 
-function loadLevel() {
-  const lvl = levels[curLevel];
-  document.getElementById('glevel').textContent = curLevel+1;
-  document.getElementById('gtitle').textContent = lvl.name;
-  document.getElementById('ginstr').textContent = 'Klikk på organismene i riktig rekkefølge – fra produsent til toppkonsument.';
-  document.getElementById('gfb').textContent='';
-  document.getElementById('gfb').className='game-feedback';
-  document.getElementById('gnext').style.display='none';
-  selOrg=null; filled=new Array(4).fill(null);
+    function initSort() {
+      selCard = null; sScore = 0; placedCount = 0;
+      document.getElementById('sscore').textContent = 0;
+      document.getElementById('bioplaced').innerHTML = '';
+      document.getElementById('abioplaced').innerHTML = '';
+      document.getElementById('sfb').textContent = '';
+      const shuffled = [...sortItems].sort(() => Math.random() - 0.5);
+      const pool = document.getElementById('spool');
+      pool.innerHTML = '';
+      shuffled.forEach((item, i) => {
+        const c = document.createElement('div');
+        c.className = 'scard'; c.dataset.type = item.type; c.dataset.text = item.t;
+        c.textContent = item.t;
+        c.addEventListener('click', () => {
+          document.querySelectorAll('.scard').forEach(x => x.classList.remove('sel'));
+          selCard = (selCard === c) ? null : c;
+          if (selCard) c.classList.add('sel');
+        });
+        pool.appendChild(c);
+      });
+    }
 
-  // Scene
-  const scene=document.getElementById('gscene');
-  scene.innerHTML='';
-  lvl.orgs.forEach((o,i)=>{
-    const el=document.createElement('div');
-    el.className='scene-org'; el.dataset.i=i;
-    el.style.top=o.pos.top; el.style.left=o.pos.left;
-    el.innerHTML=`<span class="se">${o.e}</span><span class="sn">${o.n}</span>`;
-    el.addEventListener('click',()=>pickOrg(i,el));
-    scene.appendChild(el);
-  });
+    function dropCol(col) {
+      if (!selCard) { document.getElementById('sfb').textContent = 'Klikk på et kort først!'; return; }
+      const c = selCard, type = c.dataset.type, text = c.dataset.text;
+      const ok = type === col;
+      c.classList.add('gone'); c.classList.remove('sel');
+      selCard = null; placedCount++;
+      const p = document.createElement('div');
+      p.className = `pcard ${ok ? 'ok' : 'no'}`;
+      p.textContent = `${text} ${ok ? '✓' : '✗'}`;
+      document.getElementById(col + 'placed').appendChild(p);
+      const fb = document.getElementById('sfb');
+      if (ok) { sScore++; document.getElementById('sscore').textContent = sScore; fb.textContent = '✅ Riktig!'; fb.className = 'game-feedback ok'; }
+      else { fb.textContent = `❌ ${text} er ${type === 'bio' ? 'biotisk (levende)' : 'abiotisk (ikke-levende)'}!`; fb.className = 'game-feedback no'; }
+      if (placedCount === sortItems.length) { setTimeout(() => { fb.textContent = `🎉 Ferdig! ${sScore} av ${sortItems.length} riktige!`; fb.className = 'game-feedback ok'; }, 500); }
+    }
 
-  // Slots
-  const sw=document.getElementById('gslots');
-  sw.innerHTML='';
-  const labels=['Produsent','1. forbruker','2. forbruker','3. forbruker'];
-  for(let i=0;i<4;i++){
-    const s=document.createElement('div');
-    s.className='slot'; s.dataset.s=i;
-    s.innerHTML=`<span class="sl-emoji">?</span><span class="sl-label">${labels[i]}</span>`;
-    s.addEventListener('click',()=>fillSlot(i));
-    sw.appendChild(s);
-    if(i<3){ const ar=document.createElement('span'); ar.className='slot-arrow'; ar.textContent='→'; sw.appendChild(ar); }
-  }
-}
+    // ─── AREAS ───────────────────────────────────────────────────
+    const areasData = [
+      {
+        name: "Hardangervidda", sub: "Fjell", e: "🏔️", color: "#d4e8f0",
+        abio: ["Høy beliggenhet (800–1400 moh.) – tynt, oksygenfattig luft", "Lang vintersesong med snødekke i 7–8 måneder", "Sur og næringsfattig fjellheimark", "Sterk vindeksponering fra vest", "Mange snøsmeltebekker og fjellvann"],
+        bio: ["Villrein – største villreinstamme i Europa", "Fjellrev – kritisk truet", "Krekling og blokkebær – dominerende lyngvekster", "Heilo – trekkfugl som hekker på vidda", "Reinlav – viktig vinterbeite for villrein"]
+      },
+      {
+        name: "Osloskogen", sub: "Skog på Østlandet", e: "🌲", color: "#d4f0d8",
+        abio: ["Kontinentalt klima – kalde vintre, varme somre", "Kalkrik, næringsrik morene- og leirjord", "Moderat nedbør (ca. 750 mm/år)", "Tykt snødekke om vinteren som isolerer bakken", "Mange bekker og tjern"],
+        bio: ["Gran – dominerer og skaper tett kronedekke", "Elg – viktig beitetrykk på unge trær", "Maur – bidrar til nedbrytning", "Blåbær – vanlig bunnvegetasjon under gran", "Flaggspett – hulruger som skaper reir for mange arter"]
+      },
+      {
+        name: "Bergensområdet", sub: "Vestlandskysten", e: "🌊", color: "#d4e0f0",
+        abio: ["Ekstremt høy nedbør (over 2000 mm/år)", "Mildt, oseanisk klima – sjelden frost", "Saltvannspåvirkning fra fjord og kyst", "Bratt, fjellrikt terreng", "Tidevann – vekslende våte og tørre soner"],
+        bio: ["Tare – danner undervannsskog langs kysten", "Kråkebolle – beiter ned tare", "Måke – dominerende kystfugl og åtseleter", "Rur og blåskjell – fastsittende dyr i tidevannssonen", "Einer og røsslyng – tilpasset fuktig lynghei"]
+      },
+      {
+        name: "Svalbard", sub: "Arktisk øygruppe", e: "❄️", color: "#e8f0f8",
+        abio: ["Permafrost – bakken frosset året rundt", "Midnattsol om sommeren, mørketid om vinteren", "Gjennomsnittstemperatur under 0 °C i 9 av 12 måneder", "Havis som dekker fjordene", "Næringsrik sjø fra oppstrømmende havstrømmer"],
+        bio: ["Isbjørn – toppredator avhengig av havis", "Ringsel – viktigste byttedyr for isbjørn", "Lomvi – hekker i store fuglefjellkolonier", "Svalbardrein – dvergform tilpasset arktisk tundra", "Polarvier – eneste treaktige plante"]
+      },
+      {
+        name: "Finnmark", sub: "Subarktisk innland", e: "🌌", color: "#ece8f0",
+        abio: ["Subarktisk klima – ekstremfrost (ned mot −40 °C)", "Kort vekstsesong – bare 2–3 måneder uten frost", "Lav nedbør (semi-arid), mye snø", "Næringsfattig, sur skogsjord", "Store elver (Tana, Pasvik) – kaldt, oksygenrikt vann"],
+        bio: ["Fjellbjørk – danner lave boreale skoger i dalsidene", "Laks – gyter i elvene om høsten", "Jerv – sjelden toppredator", "Lemen – nøkkelart med bestandstopper hvert 3–4 år", "Myrull – karakteristisk torvmyrplante"]
+      }
+    ];
 
-function pickOrg(i,el){
-  if(filled.includes(i)) return;
-  document.querySelectorAll('.scene-org').forEach(o=>o.classList.remove('sel'));
-  selOrg=(selOrg===i)?null:i;
-  if(selOrg!==null) el.classList.add('sel');
-}
-
-function fillSlot(si){
-  if(selOrg===null||filled[si]!==null) return;
-  const lvl=levels[curLevel], o=lvl.orgs[selOrg];
-  filled[si]=selOrg;
-  const slots=document.getElementById('gslots').querySelectorAll('.slot');
-  const s=slots[si];
-  s.classList.add('filled');
-  s.innerHTML=`<span class="sl-emoji">${o.e}</span><span class="sl-name">${o.n}</span><span class="sl-label">${o.r}</span>`;
-  document.querySelectorAll('.scene-org')[selOrg].classList.add('used');
-  selOrg=null;
-  if(filled.every(x=>x!==null)) checkGame();
-}
-
-function checkGame(){
-  const ok=levels[curLevel].correct.every((ci,si)=>filled[si]===ci);
-  const fb=document.getElementById('gfb');
-  if(ok){
-    fb.textContent='✅ Riktig! Godt jobbet!'; fb.className='game-feedback ok';
-    gScore+=10; document.getElementById('gscore').textContent=gScore;
-    document.getElementById('gnext').style.display=curLevel<3?'inline-block':'none';
-    if(curLevel===3) fb.textContent=`🎉 Ferdig! Du fikk ${gScore} poeng totalt!`;
-  } else {
-    fb.textContent='❌ Ikke helt riktig – prøv igjen!'; fb.className='game-feedback no';
-    setTimeout(resetLevel,1600);
-  }
-}
-function resetLevel(){ loadLevel(); }
-function nextLevel(){ if(curLevel<3){ curLevel++; loadLevel(); } }
-
-// ─── QUIZ ────────────────────────────────────────────────────
-const Qs=[
-  {q:"Hva kalles organismer som lager sin egen mat ved fotosyntese?",
-   opts:["Forbrukere","Produsenter","Nedbrytere","Altetere"],cor:1,
-   ex:"Planter er produsenter – de bruker sollys, vann og CO₂ til å lage sukker."},
-  {q:"Haren spiser gress. Hva er haren i næringskjeden?",
-   opts:["Produsent","Andreforbruker","Nedbryter","Førsteforbruker"],cor:3,
-   ex:"Planteetere er alltid førsteforbrukere."},
-  {q:"Omtrent hvor mye energi videreføres fra ett ledd til neste?",
-   opts:["50 %","25 %","10 %","90 %"],cor:2,
-   ex:"Bare ca. 10 % videreføres. Resten brukes til bevegelse, vekst og varme."},
-  {q:"Bjørnen spiser bær og elg. Hva kalles bjørnen?",
-   opts:["Nedbryter","Alteter","Tredjeforbruker","Produsent"],cor:1,
-   ex:"Altetere kan spise både planter og dyr og har ingen fast plass i kjeden."},
-  {q:"Hva er et næringsnett?",
-   opts:["Én enkelt næringskjede","Et nettverk av mange næringskjeder som overlapper","Et kart over naturområder","En oversikt over abiotiske faktorer"],cor:1,
-   ex:"Næringsnett viser hvordan mange næringskjeder henger sammen."},
-  {q:"Sopp og bakterier bryter ned døde dyr. Hva kalles de?",
-   opts:["Produsenter","Altetere","Nedbrytere","Andreforbrukere"],cor:2,
-   ex:"Nedbrytere er viktige – de fører næringsstoffer tilbake til jorda."}
-];
-let qIdx=0, qDone=false;
-
-function initQuiz(){ qIdx=0; qDone=false; renderQ(); }
-function renderQ(){
-  qDone=false;
-  const q=Qs[qIdx];
-  document.getElementById('qprog').innerHTML=Qs.map((_,i)=>`<div class="qdot ${i<qIdx?'done':i===qIdx?'curr':''}"></div>`).join('');
-  document.getElementById('qq').textContent=`${qIdx+1}. ${q.q}`;
-  document.getElementById('qfb').textContent='';
-  document.getElementById('qfb').className='quiz-fb';
-  document.getElementById('qnext').style.display='none';
-  document.getElementById('qopts').innerHTML=q.opts.map((o,i)=>`<button class="qopt" onclick="answerQ(${i})">${o}</button>`).join('');
-}
-function answerQ(i){
-  if(qDone) return; qDone=true;
-  const q=Qs[qIdx];
-  document.querySelectorAll('.qopt').forEach(o=>o.disabled=true);
-  const fb=document.getElementById('qfb');
-  if(i===q.cor){
-    document.querySelectorAll('.qopt')[i].classList.add('correct');
-    fb.textContent=`✅ Riktig! ${q.ex}`; fb.className='quiz-fb ok';
-  } else {
-    document.querySelectorAll('.qopt')[i].classList.add('wrong');
-    document.querySelectorAll('.qopt')[q.cor].classList.add('correct');
-    fb.textContent=`❌ Feil. ${q.ex}`; fb.className='quiz-fb no';
-  }
-  if(qIdx<Qs.length-1) document.getElementById('qnext').style.display='inline-block';
-  else { setTimeout(()=>{ fb.textContent=`🏆 Quiz ferdig! Bra jobbet!`; },700); }
-}
-function nextQ(){ qIdx++; renderQ(); }
-
-// ─── SORT GAME ───────────────────────────────────────────────
-const sortItems=[
-  {t:"🌡️ Temperatur",type:"abio"},{t:"🌧️ Nedbør",type:"abio"},
-  {t:"☀️ Sollys",type:"abio"},{t:"💨 Vind",type:"abio"},
-  {t:"🌊 Saltinnhold",type:"abio"},{t:"🪨 Jordtype",type:"abio"},
-  {t:"❄️ Snødekke",type:"abio"},{t:"🌲 Gran",type:"bio"},
-  {t:"🦌 Elg",type:"bio"},{t:"🍄 Sopp",type:"bio"},
-  {t:"🐛 Meitemark",type:"bio"},{t:"🦊 Rev",type:"bio"},
-  {t:"🌿 Reinlav",type:"bio"},{t:"🦠 Bakterier",type:"bio"}
-];
-let selCard=null, sScore=0, placedCount=0;
-
-function initSort(){
-  selCard=null; sScore=0; placedCount=0;
-  document.getElementById('sscore').textContent=0;
-  document.getElementById('bioplaced').innerHTML='';
-  document.getElementById('abioplaced').innerHTML='';
-  document.getElementById('sfb').textContent='';
-  const shuffled=[...sortItems].sort(()=>Math.random()-0.5);
-  const pool=document.getElementById('spool');
-  pool.innerHTML='';
-  shuffled.forEach((item,i)=>{
-    const c=document.createElement('div');
-    c.className='scard'; c.dataset.type=item.type; c.dataset.text=item.t;
-    c.textContent=item.t;
-    c.addEventListener('click',()=>{ 
-      document.querySelectorAll('.scard').forEach(x=>x.classList.remove('sel'));
-      selCard=(selCard===c)?null:c;
-      if(selCard) c.classList.add('sel');
-    });
-    pool.appendChild(c);
-  });
-}
-
-function dropCol(col){
-  if(!selCard){ document.getElementById('sfb').textContent='Klikk på et kort først!'; return; }
-  const c=selCard, type=c.dataset.type, text=c.dataset.text;
-  const ok=type===col;
-  c.classList.add('gone'); c.classList.remove('sel');
-  selCard=null; placedCount++;
-  const p=document.createElement('div');
-  p.className=`pcard ${ok?'ok':'no'}`;
-  p.textContent=`${text} ${ok?'✓':'✗'}`;
-  document.getElementById(col+'placed').appendChild(p);
-  const fb=document.getElementById('sfb');
-  if(ok){ sScore++; document.getElementById('sscore').textContent=sScore; fb.textContent='✅ Riktig!'; fb.className='game-feedback ok'; }
-  else { fb.textContent=`❌ ${text} er ${type==='bio'?'biotisk (levende)':'abiotisk (ikke-levende)'}!`; fb.className='game-feedback no'; }
-  if(placedCount===sortItems.length){ setTimeout(()=>{ fb.textContent=`🎉 Ferdig! ${sScore} av ${sortItems.length} riktige!`; fb.className='game-feedback ok'; },500); }
-}
-
-// ─── AREAS ───────────────────────────────────────────────────
-const areasData=[
-  { name:"Hardangervidda", sub:"Fjell", e:"🏔️", color:"#d4e8f0",
-    abio:["Høy beliggenhet (800–1400 moh.) – tynt, oksygenfattig luft","Lang vintersesong med snødekke i 7–8 måneder","Sur og næringsfattig fjellheimark","Sterk vindeksponering fra vest","Mange snøsmeltebekker og fjellvann"],
-    bio:["Villrein – største villreinstamme i Europa","Fjellrev – kritisk truet","Krekling og blokkebær – dominerende lyngvekster","Heilo – trekkfugl som hekker på vidda","Reinlav – viktig vinterbeite for villrein"]
-  },
-  { name:"Osloskogen", sub:"Skog på Østlandet", e:"🌲", color:"#d4f0d8",
-    abio:["Kontinentalt klima – kalde vintre, varme somre","Kalkrik, næringsrik morene- og leirjord","Moderat nedbør (ca. 750 mm/år)","Tykt snødekke om vinteren som isolerer bakken","Mange bekker og tjern"],
-    bio:["Gran – dominerer og skaper tett kronedekke","Elg – viktig beitetrykk på unge trær","Maur – bidrar til nedbrytning","Blåbær – vanlig bunnvegetasjon under gran","Flaggspett – hulruger som skaper reir for mange arter"]
-  },
-  { name:"Bergensområdet", sub:"Vestlandskysten", e:"🌊", color:"#d4e0f0",
-    abio:["Ekstremt høy nedbør (over 2000 mm/år)","Mildt, oseanisk klima – sjelden frost","Saltvannspåvirkning fra fjord og kyst","Bratt, fjellrikt terreng","Tidevann – vekslende våte og tørre soner"],
-    bio:["Tare – danner undervannsskog langs kysten","Kråkebolle – beiter ned tare","Måke – dominerende kystfugl og åtseleter","Rur og blåskjell – fastsittende dyr i tidevannssonen","Einer og røsslyng – tilpasset fuktig lynghei"]
-  },
-  { name:"Svalbard", sub:"Arktisk øygruppe", e:"🐻‍❄️", color:"#e8f0f8",
-    abio:["Permafrost – bakken frosset året rundt","Midnattsol om sommeren, mørketid om vinteren","Gjennomsnittstemperatur under 0 °C i 9 av 12 måneder","Havis som dekker fjordene","Næringsrik sjø fra oppstrømmende havstrømmer"],
-    bio:["Isbjørn – toppredator avhengig av havis","Ringsel – viktigste byttedyr for isbjørn","Lomvi – hekker i store fuglefjellkolonier","Svalbardrein – dvergform tilpasset arktisk tundra","Polarvier – eneste treaktige plante"]
-  },
-  { name:"Finnmark", sub:"Subarktisk innland", e:"🌌", color:"#ece8f0",
-    abio:["Subarktisk klima – ekstremfrost (ned mot −40 °C)","Kort vekstsesong – bare 2–3 måneder uten frost","Lav nedbør (semi-arid), mye snø","Næringsfattig, sur skogsjord","Store elver (Tana, Pasvik) – kaldt, oksygenrikt vann"],
-    bio:["Fjellbjørk – danner lave boreale skoger i dalsidene","Laks – gyter i elvene om høsten","Jerv – sjelden toppredator","Lemen – nøkkelart med bestandstopper hvert 3–4 år","Myrull – karakteristisk torvmyrplante"]
-  }
-];
-
-function initAreas(){
-  const grid=document.getElementById('areas');
-  grid.innerHTML='';
-  areasData.forEach((a,i)=>{
-    const card=document.createElement('div');
-    card.className='area-card'; card.id=`ac${i}`;
-    card.innerHTML=`
+    function initAreas() {
+      const grid = document.getElementById('areas');
+      grid.innerHTML = '';
+      areasData.forEach((a, i) => {
+        const card = document.createElement('div');
+        card.className = 'area-card'; card.id = `ac${i}`;
+        card.innerHTML = `
       <div class="area-head" style="background:${a.color}">
         <span class="a-emoji">${a.e}</span>
         <div><div class="a-title">${a.name}</div><div class="a-sub">${a.sub}</div></div>
@@ -633,26 +1713,27 @@ function initAreas(){
       <div class="area-body" id="ab${i}">
         <div class="fgroup">
           <div class="fg-title abio">🌡️ Abiotiske faktorer</div>
-          ${a.abio.map(f=>`<div class="fitem abio">${f}</div>`).join('')}
+          ${a.abio.map(f => `<div class="fitem abio">${f}</div>`).join('')}
         </div>
         <div class="fgroup">
           <div class="fg-title bio">🌿 Biotiske faktorer</div>
-          ${a.bio.map(f=>`<div class="fitem bio">${f}</div>`).join('')}
+          ${a.bio.map(f => `<div class="fitem bio">${f}</div>`).join('')}
         </div>
       </div>`;
-    card.addEventListener('click',()=>{
-      const body=document.getElementById(`ab${i}`);
-      const isOpen=body.classList.contains('show');
-      document.querySelectorAll('.area-body').forEach(b=>b.classList.remove('show'));
-      document.querySelectorAll('.area-card').forEach(c=>c.classList.remove('open'));
-      if(!isOpen){ body.classList.add('show','fade-in'); card.classList.add('open'); }
-    });
-    grid.appendChild(card);
-  });
-}
+        card.addEventListener('click', () => {
+          const body = document.getElementById(`ab${i}`);
+          const isOpen = body.classList.contains('show');
+          document.querySelectorAll('.area-body').forEach(b => b.classList.remove('show'));
+          document.querySelectorAll('.area-card').forEach(c => c.classList.remove('open'));
+          if (!isOpen) { body.classList.add('show', 'fade-in'); card.classList.add('open'); }
+        });
+        grid.appendChild(card);
+      });
+    }
 
-// ─── INIT ────────────────────────────────────────────────────
-initGame(); initQuiz(); initSort(); initAreas();
-</script>
+    // ─── INIT ────────────────────────────────────────────────────
+    initWebGame(); initGame(); initQuiz(); initSort(); initAreas();
+  </script>
 </body>
+
 </html>
