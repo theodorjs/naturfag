@@ -1149,7 +1149,6 @@
         </defs>
         <!-- Green: Produsent → 1.forbruker -->
         <line x1="90" y1="218" x2="91" y2="182" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
-        <line x1="113" y1="229" x2="265" y2="170" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
         <line x1="290" y1="218" x2="290" y2="182" stroke="#52b788" stroke-width="2" marker-end="url(#ag)" />
         <!-- Orange: 1.forbruker → 2.forbruker -->
         <line x1="109" y1="128" x2="148" y2="82" stroke="#f4a261" stroke-width="2" marker-end="url(#ao)" />
@@ -1213,10 +1212,10 @@
     <div class="game-box">
       <div class="score-row">
         <div class="badge badge-sun">⭐ Poeng: <span id="wscore">0</span></div>
-        <div class="badge badge-ghost">Funnet: <span id="wfound">0</span> / 8 forbindelser</div>
+        <div class="badge badge-ghost">Funnet: <span id="wfound">0</span> / 7 forbindelser</div>
       </div>
       <h3>Koble næringsnett!</h3>
-      <p class="game-desc" id="winstr">Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 8
+      <p class="game-desc" id="winstr">Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 7
         forbindelsene!</p>
       <div class="web-nodes" id="wnodes"></div>
       <div class="conn-list" id="wconns"></div>
@@ -1344,7 +1343,7 @@
 
   </div>
 
-  <footer style="background:#d8f3dc;padding:10px 24px;text-align:right;">
+  <footer style="background:#d8f3dc;padding:10px 24px;text-align:center;">
     <span style="font-size:0.75rem;color:#2d6a4f;font-family:'Nunito',sans-serif;font-weight:600;">Theodor
       Sandaker</span>
   </footer>
@@ -1368,7 +1367,7 @@
       { id: 5, e: "🦅", n: "Kongeørn" }
     ];
     // Valid pairs: [predator_id, prey_id]
-    const validConns = [[2, 0], [3, 0], [3, 1], [4, 2], [4, 3], [5, 2], [5, 3], [5, 4]];
+    const validConns = [[2, 0], [3, 1], [4, 2], [4, 3], [5, 2], [5, 3], [5, 4]];
     let wScore = 0, wFound = [], wPredator = null;
 
     function initWebGame() {
@@ -1378,7 +1377,7 @@
       document.getElementById('wfb').textContent = '';
       document.getElementById('wfb').className = 'game-feedback';
       document.getElementById('wconns').innerHTML = '';
-      document.getElementById('winstr').textContent = 'Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 8 forbindelsene!';
+      document.getElementById('winstr').textContent = 'Klikk på et dyr som SPISER, og deretter på hva det spiser. Finn alle 7 forbindelsene!';
       const nodesEl = document.getElementById('wnodes');
       nodesEl.innerHTML = '';
       webOrgs.forEach(o => {
