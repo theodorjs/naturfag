@@ -83,10 +83,11 @@ h1 { font-size: clamp(34px, 6vw, 52px); }
 .klosser .g { background: var(--gruppe); }
 .klosser .pg { background: linear-gradient(135deg, var(--periode) 50%, var(--gruppe) 50%); }
 
-footer {
-  border-top: 1px solid var(--line); padding: 12px 16px; text-align: center;
-  font-size: 12px; font-weight: 600; color: var(--muted);
+.bunntekst {
+  padding: 24px 16px 20px; text-align: center;
+  font-size: 12px; color: var(--muted);
 }
+.bunntekst a { color: inherit; }
 @media (prefers-reduced-motion: reduce) { .tema { transition: none; } .tema:hover { transform: none; } }
 </style>
 </head>
@@ -127,6 +128,6 @@ footer {
     </li>
   </ul>
 </main>
-<footer>Theodor Sandaker</footer>
+<footer class="bunntekst">© 2026 Theodor Sandaker · Alle rettigheter forbeholdt · <a href="mailto:sandakersverden@gmail.com">Kontakt</a> · en del av <a href="https://theodorjs.github.io/sandakersverden/">Sandakers Verden</a></footer>
 </body>
 </html>
