@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Periode eller gruppe?</title>
+<meta name="description" content="Periodesystemet som klosser: perioden er en liggende rad, gruppa er en stående kolonne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap">
+<link rel="stylesheet" href="periode-og-gruppe.css">
+<style>
+html, body { margin: 0; } [hidden] { display: none !important; }
+:root { --side-bg: #F3F6F2; --side-fg: #56655B; --side-link: #2E7D32; --side-line: #D5DED6; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --side-bg: #111713; --side-fg: #A3B2A7; --side-link: #7CC47F; --side-line: #2E3A31; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --side-bg: #111713; --side-fg: #A3B2A7; --side-link: #7CC47F; --side-line: #2E3A31; color-scheme: dark; }
+body { background: var(--side-bg); }
+.side-nav { max-width: 1080px; margin: 0 auto; padding: 16px max(16px, env(safe-area-inset-left, 0px)) 0; box-sizing: content-box; }
+.side-nav a { font-family: "Nunito Sans", system-ui, sans-serif; font-size: 15px; font-weight: 800; color: var(--side-link); text-decoration: none; }
+.side-nav a:hover { text-decoration: underline; }
+.side-nav a:focus-visible { outline: 3px solid var(--side-link); outline-offset: 2px; border-radius: 4px; }
+.side-footer { border-top: 1px solid var(--side-line); padding: 12px 16px; text-align: center; font-family: "Nunito Sans", system-ui, sans-serif; font-size: 12px; font-weight: 600; color: var(--side-fg); }
+</style>
+</head>
+<body>
+<nav class="side-nav" aria-label="Tilbake"><a href="../">← Alle temaer</a></nav>
+<div class="pg-tema" id="periode-og-gruppe">
+<div class="pg-wrap">
+  <header>
+    <p class="pg-eyebrow">Naturfag · Periodesystemet</p>
+    <h1>Periode eller gruppe?</h1>
+    <p class="pg-lead">Huskeregel: <b class="pg-p">perioden ligger</b>, <b class="pg-g">gruppa står</b>. Trykk på en kloss i periodesystemet for å se hvilken periode og hvilken gruppe den hører til.</p>
+  </header>
+
+  <section class="pg-rules" aria-label="Huskeregler">
+    <div class="pg-rule pg-per">
+      <div>
+        <h2 class="pg-p">Periode</h2>
+        <div class="pg-word">= en liggende rad</div>
+        <p>Den går <b>bortover</b>, fra venstre mot høyre. Det er 7 perioder, og nummeret står <b>til venstre</b> i tabellen.</p>
+        <p class="pg-means pg-p">Periodenummeret = antall skall</p>
+      </div>
+      <div class="pg-mini-box pg-h" aria-hidden="true">
+        <div class="pg-mini pg-row"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="pg-arrow pg-p">→</div>
+      </div>
+    </div>
+    <div class="pg-rule pg-gru">
+      <div>
+        <h2 class="pg-g">Gruppe</h2>
+        <div class="pg-word">= en stående kolonne</div>
+        <p>Den går <b>nedover</b>, fra toppen mot bunnen. Det er 18 grupper, og nummeret står <b>øverst</b> i tabellen.</p>
+        <p class="pg-means pg-g">Gruppe 1 og 2: nummeret = antall ytterelektroner<br>Gruppe 13 til 18: bakerste siffer = antall ytterelektroner (helium har 2)</p>
+      </div>
+      <div class="pg-mini-box pg-v" aria-hidden="true">
+        <div class="pg-mini pg-col"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="pg-arrow pg-g">↓</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-board" aria-label="Periodesystemet som klosser">
+    <div class="pg-board-head">
+      <h2>Periodesystemet i klosser</h2>
+      <div class="pg-legend">
+        <span class="pg-key"><i class="pg-kp"></i>samme periode (rad)</span>
+        <span class="pg-key"><i class="pg-kg"></i>samme gruppe (kolonne)</span>
+      </div>
+    </div>
+    <div class="pg-chips">
+      <span>Prøv:</span>
+      <button class="pg-chip" type="button" data-z="11">Natrium</button>
+      <button class="pg-chip" type="button" data-z="6">Karbon</button>
+      <button class="pg-chip" type="button" data-z="17">Klor</button>
+      <button class="pg-chip" type="button" data-z="10">Neon</button>
+      <button class="pg-chip" type="button" data-z="20">Kalsium</button>
+      <button class="pg-chip" type="button" data-z="26">Jern</button>
+    </div>
+    <div class="pg-scroller">
+      <div class="pg-table" id="pg-table" role="grid" aria-label="Periodesystemet"></div>
+    </div>
+    <p class="pg-note">Trykk på et tall øverst for å se en hel gruppe, eller på et tall til venstre for å se en hel periode. Lantanoidene (57 til 71) og aktinoidene (89 til 103) står egentlig i periode 6 og 7, men er flyttet ned i vanlige periodesystemer for at tabellen ikke skal bli for bred.</p>
+  </section>
+
+  <section class="pg-info" id="pg-info" aria-live="polite"></section>
+
+  <p class="pg-book"><b>PS:</b> Læreboka bruker ordet «rekke» om begge deler: «en vannrett rekke kalles en periode» og «de loddrette rekkene kalles grupper». Vannrett betyr bortover, som vannflaten i et glass. Loddrett betyr rett ned, som et lodd i en snor.</p>
+</div>
+</div>
+<footer class="side-footer">Theodor Sandaker</footer>
+<script src="periode-og-gruppe.js" defer></script>
+</body>
+</html>
