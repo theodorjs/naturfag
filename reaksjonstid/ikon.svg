@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Hjemskjermikon: stoppeklokke med grønn sektor (trykk når det blir grønt) og en måne for søvn. iOS runder hjørnene selv. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3550"/><stop offset="1" stop-color="#141a2e"/>
+    </linearGradient>
+    <mask id="maane">
+      <rect width="512" height="512" fill="#fff"/>
+      <circle cx="146" cy="104" r="50" fill="#000"/>
+    </mask>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g fill="#ffffff" opacity=".55">
+    <circle cx="404" cy="84" r="5"/><circle cx="452" cy="150" r="3.5"/><circle cx="344" cy="54" r="3"/><circle cx="62" cy="236" r="3.5"/>
+  </g>
+  <circle cx="120" cy="126" r="58" fill="#ffc94d" mask="url(#maane)"/>
+  <g transform="translate(0 -12)">
+  <rect x="230" y="98" width="52" height="34" rx="11" fill="#dfe5f3"/>
+  <rect x="245" y="124" width="22" height="34" fill="#dfe5f3"/>
+  <rect x="350" y="174" width="44" height="26" rx="9" fill="#dfe5f3" transform="rotate(45 372 187)"/>
+  <circle cx="256" cy="304" r="150" fill="#dfe5f3"/>
+  <circle cx="256" cy="304" r="124" fill="#ffffff"/>
+  <path d="M256 304 L256 180 A124 124 0 0 1 363.4 366 Z" fill="#22b36c"/>
+  <g stroke="#2b3550" stroke-width="10" stroke-linecap="round">
+    <path d="M256 196 V214"/><path d="M364 304 H346"/><path d="M256 412 V394"/><path d="M148 304 H166"/>
+  </g>
+  <path d="M256 304 L340 352.5" stroke="#172033" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="256" cy="304" r="17" fill="#172033"/>
+  </g>
+</svg>

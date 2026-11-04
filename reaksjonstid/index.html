@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Søvn og reaksjonstid</title>
+<meta name="description" content="Reaksjonstest på 2 minutter til søvnprosjektet, med statistikk, graf og eksport til Showbie.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Reaksjonstid">
+<meta name="theme-color" content="#eef1f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="icon" href="ikon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="reaksjonstid.css">
+</head>
+<body>
+<nav class="side-nav" aria-label="Tilbake"><a href="../">← Alle temaer</a></nav>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Tverrfaglig måned · Søvn</div>
+    <h1>Søvn og reaksjonstid</h1>
+    <p class="lead">Testen varer i 2 minutter. Trykk så fort du kan hver gang skjermen blir grønn. Den neste runden starter av seg selv. Trykker du før det blir grønt, teller det som et for tidlig trykk.</p>
+  </header>
+
+  <section class="card" aria-labelledby="h-setup">
+    <h2 id="h-setup">Før du starter</h2>
+    <div class="setup">
+      <div class="fieldgroup" id="g-name">
+        <label class="lbl" for="name">Navn</label>
+        <input id="name" type="text" autocomplete="name" autocapitalize="words" maxlength="40" placeholder="Fornavn og etternavn">
+        <p class="err" id="e-name" hidden>Skriv navnet ditt.</p>
+      </div>
+      <div class="fieldgroup">
+        <span class="lbl">Dato</span>
+        <div class="datebox" id="dateBox"></div>
+        <span class="hint">Settes automatisk</span>
+      </div>
+      <div class="fieldgroup" id="g-sleep">
+        <span class="lbl"><label for="sleep">Søvn i natt (timer)</label>
+          <button class="infobtn" id="infoBtn" type="button" aria-expanded="false" aria-controls="infoPanel" aria-label="Slik regner du om til desimaltall">i</button></span>
+        <input id="sleep" type="text" inputmode="decimal" autocomplete="off" placeholder="f.eks. 7,75">
+        <p class="err" id="e-sleep" hidden>Skriv antall timer, for eksempel 7,5.</p>
+        <div class="info" id="infoPanel" hidden>
+          <p><b>Slik gjør du minutter om til desimaltall:</b> Del minuttene på 60 og legg svaret til timene.</p>
+          <p>Eksempel: 7 timer og 45 minutter er 7 + 45 : 60 = 7 + 0,75 = <b>7,75</b>.</p>
+          <table aria-label="Vanlige minutter som desimaltall">
+            <tr><td>10 min</td><td>0,17</td><td>30 min</td><td>0,5</td></tr>
+            <tr><td>15 min</td><td>0,25</td><td>40 min</td><td>0,67</td></tr>
+            <tr><td>20 min</td><td>0,33</td><td>45 min</td><td>0,75</td></tr>
+            <tr><td>25 min</td><td>0,42</td><td>50 min</td><td>0,83</td></tr>
+          </table>
+          <p class="hint">Tell fra du sovnet til du våknet. Sovnet du 23.30 og våknet 07.00, sov du 7 timer og 30 minutter, altså 7,5.</p>
+          <div class="conv">
+            <input id="convH" type="text" inputmode="numeric" aria-label="Timer" placeholder="timer">
+            <span>t</span>
+            <input id="convM" type="text" inputmode="numeric" aria-label="Minutter" placeholder="min">
+            <span>min =</span>
+            <b id="convOut">?</b>
+            <button class="btn" id="convUse" type="button" disabled>Bruk</button>
+          </div>
+        </div>
+      </div>
+      <div class="fieldgroup" id="g-alert">
+        <span class="lbl" id="l-alert">Hvor opplagt er du nå?</span>
+        <div class="chips" role="radiogroup" aria-labelledby="l-alert">
+          <label><input type="radio" name="alert" value="1"><span>1</span></label>
+          <label><input type="radio" name="alert" value="2"><span>2</span></label>
+          <label><input type="radio" name="alert" value="3"><span>3</span></label>
+          <label><input type="radio" name="alert" value="4"><span>4</span></label>
+          <label><input type="radio" name="alert" value="5"><span>5</span></label>
+        </div>
+        <div class="scale"><span>Svært trøtt</span><span>Helt våken</span></div>
+        <p class="err" id="e-alert" hidden>Velg et tall fra 1 til 5.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Reaksjonstest">
+    <div id="field" tabindex="0" role="button" data-state="idle" aria-live="polite">
+      <div class="topbar" id="topbar" hidden>
+        <span id="clock">2:00</span>
+        <button type="button" id="abortBtn">Avbryt</button>
+      </div>
+      <div>
+        <p class="big" id="bigText">Trykk for å starte</p>
+        <p class="sub" id="subText">Fyll inn navn, søvn og hvor opplagt du er først</p>
+      </div>
+      <div class="timebar" id="timebar" hidden></div>
+    </div>
+  </section>
+
+  <section class="card" id="resultCard" hidden aria-labelledby="h-res">
+    <h2 id="h-res">Resultatet ditt</h2>
+    <p class="meta" id="resMeta"></p>
+    <div class="stats" id="stats"></div>
+    <p id="noChart" hidden>Grafen finnes ikke for denne målingen.</p>
+    <div class="chartbox"><canvas id="chart" role="img" aria-label="Linjediagram over reaksjonstiden gjennom testen"></canvas></div>
+    <div class="row">
+      <button class="btn primary" id="exportBtn" type="button">Eksporter til Showbie</button>
+      <button class="btn" id="again" type="button">Ta testen på nytt</button>
+      <span class="toast" id="toast" role="status"></span>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-log">
+    <h2 id="h-log">Tidligere målinger på denne enheten</h2>
+    <div class="tablewrap">
+      <table class="log">
+        <thead><tr><th>Dato</th><th>Navn</th><th class="num">Søvn (t)</th><th class="num">Opplagt</th><th class="num">Median</th><th class="num">Snitt</th><th class="num">Raskest</th><th class="num">Tregest</th><th class="num">Bredde</th><th class="num">For tidlig</th><th><span class="sr" style="position:absolute;left:-9999px">Valg</span></th></tr></thead>
+        <tbody id="logBody"></tbody>
+      </table>
+    </div>
+    <div class="row">
+      <button class="btn" id="copyAll" type="button">Kopier alle radene</button>
+      <button class="btn" id="clearLog" type="button">Tøm loggen</button>
+      <span class="toast" id="toast2" role="status"></span>
+    </div>
+    <p class="note" style="margin-top:10px">Tidene er i millisekunder (ms). Loggen lagres bare i nettleseren på denne enheten, og blir liggende til du tømmer den. Rader i kursiv er eksempler og forsvinner etter første måling.</p>
+  </section>
+
+  <section class="card">
+    <details>
+      <summary>For læreren: slik bruker vi testen</summary>
+      <ol>
+        <li>Ta testen til samme tid hver dag, helst i første time. Reaksjonstiden varierer gjennom døgnet.</li>
+        <li>Kjør prøverunder før måleukene. Elevene blir raskere de første gangene, og det er øvingseffekt, ikke søvn.</li>
+        <li>Testen varer i 2 minutter. Ventetiden før grønt er tilfeldig mellom 1,5 og 4 sekunder, og resultatet vises i 1 sekund før neste runde.</li>
+        <li>Eleven trykker «Eksporter til Showbie». Da lages et bilde med alle tallene og grafen, og delingsmenyen åpnes. Der velger eleven Showbie. Hvis menyen ikke åpnes, vises bildet, og eleven kan holde fingeren på det for å dele eller lagre det.</li>
+        <li>Medianen påvirkes mindre av ett tilfeldig tregt trykk enn gjennomsnittet. Variasjonsbredden og grafen viser om eleven blir ujevn mot slutten.</li>
+        <li>Ingen elev skal sove mindre enn vanlig for å teste effekten.</li>
+      </ol>
+    </details>
+  </section>
+  <textarea id="clip" aria-hidden="true" tabindex="-1"></textarea>
+</div>
+
+<div class="menu" id="rowMenu" role="menu" hidden>
+  <button type="button" role="menuitem" id="menuShow">Vis resultat og eksporter</button>
+</div>
+
+<div id="shareOverlay" hidden role="dialog" aria-modal="true" aria-labelledby="h-share">
+  <div class="sheet">
+    <h2 id="h-share" style="margin:0">Del bildet med Showbie</h2>
+    <img id="shareImg" alt="Resultatbilde fra reaksjonstesten">
+    <ol>
+      <li>Hold fingeren på bildet.</li>
+      <li>Velg «Del» og så Showbie. Eller velg «Arkiver i Bilder» og last opp bildet i Showbie.</li>
+    </ol>
+    <button class="btn" id="closeShare" type="button">Lukk</button>
+  </div>
+</div>
+<footer class="bunntekst">© 2026 Theodor Sandaker · Alle rettigheter forbeholdt · <a href="mailto:sandakersverden@gmail.com">Kontakt</a> · en del av <a href="https://theodorjs.github.io/sandakersverden/">Sandakers Verden</a></footer>
+<script src="reaksjonstid.js" defer></script>
+</body>
+</html>
