@@ -76,6 +76,8 @@ h1 { font-size: clamp(34px, 6vw, 52px); }
 .tema-trinn span { display: inline-block; border: 2px solid var(--line); border-radius: 999px; padding: 2px 12px; }
 
 /* Små tegninger på kortene */
+.tema-bilde-natt { background: linear-gradient(#1b2550, #0c1230); }
+.tema-bilde-natt svg { height: 100%; width: auto; max-width: 100%; display: block; }
 .pil { font-family: var(--display); font-size: 26px; font-weight: 700; color: var(--naturfag); }
 .klosser { display: grid; grid-template-columns: repeat(5, 22px); grid-template-rows: repeat(4, 18px); gap: 4px; }
 .klosser span { border-radius: 4px; background: var(--surface); box-shadow: inset 0 0 0 2px var(--line); }
@@ -128,7 +130,38 @@ h1 { font-size: clamp(34px, 6vw, 52px); }
     </li>
     <li>
       <a class="tema" href="reaksjonstid/">
-        <div class="tema-bilde" aria-hidden="true">🌙⏱️</div>
+        <div class="tema-bilde tema-bilde-natt" aria-hidden="true">
+          <svg viewBox="0 0 640 400" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="bgReaksjon" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1b2550"/><stop offset="1" stop-color="#0c1230"/>
+            </linearGradient>
+            <mask id="maaneReaksjon">
+              <rect width="640" height="400" fill="#ffffff"/>
+              <circle cx="182" cy="118" r="50" fill="#000000"/>
+            </mask>
+          </defs>
+          <rect width="640" height="400" fill="url(#bgReaksjon)"/>
+          <g fill="#ffffff" opacity=".45"><circle cx="64" cy="60" r="2.2"/><circle cx="292" cy="42" r="1.8"/><circle cx="590" cy="74" r="2.2"/><circle cx="60" cy="330" r="1.8"/><circle cx="602" cy="338" r="2"/></g>
+          <circle cx="160" cy="140" r="54" fill="#ffc94d" mask="url(#maaneReaksjon)"/>
+          <g font-family="'Baloo 2', 'Fredoka', 'Nunito', sans-serif" font-weight="700" fill="#a8b8f0">
+            <text x="196" y="232" font-size="24">z</text>
+            <text x="220" y="206" font-size="30">z</text>
+            <text x="248" y="176" font-size="38">Z</text>
+          </g>
+          <rect x="388" y="74" width="44" height="28" rx="10" fill="#dfe5f3"/>
+          <rect x="400" y="96" width="20" height="20" fill="#dfe5f3"/>
+          <rect x="486" y="122" width="38" height="24" rx="8" fill="#dfe5f3" transform="rotate(45 505 134)"/>
+          <circle cx="410" cy="230" r="120" fill="#dfe5f3"/>
+          <circle cx="410" cy="230" r="98" fill="#ffffff"/>
+          <path d="M410 230 L410 132 A98 98 0 0 1 494.9 279 Z" fill="#2fbf71"/>
+          <g stroke="#1c2340" stroke-width="7" stroke-linecap="round">
+            <path d="M410 144 V158"/><path d="M496 230 H482"/><path d="M410 316 V302"/><path d="M324 230 H338"/>
+          </g>
+          <path d="M410 230 L476 268" stroke="#1c2340" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="410" cy="230" r="13" fill="#1c2340"/>
+        </svg>
+        </div>
         <div class="tema-tekst">
           <p class="tema-emne">Kropp og helse</p>
           <h2>Søvn og reaksjonstid</h2>
