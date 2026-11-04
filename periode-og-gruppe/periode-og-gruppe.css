@@ -75,7 +75,10 @@
 .pg-tema .pg-board-head { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: baseline; justify-content: space-between; }
 .pg-tema .pg-board-head h2 { font-size: 24px; }
 .pg-tema .pg-board-head p { margin: 0; color: var(--muted); }
+/* Rulling bare når tabellen faktisk ikke får plass (860px + 2 x 18px polstring i .pg-board). Ellers gir avrunding en unødvendig rullelinje. */
+.pg-tema .pg-board { container-type: inline-size; }
 .pg-tema .pg-scroller { overflow-x: auto; padding-bottom: 6px; }
+@container (min-width: 897px) { .pg-tema .pg-scroller { overflow-x: visible; padding-bottom: 0; } }
 .pg-tema .pg-table { display: grid; grid-template-columns: 40px repeat(18, minmax(40px, 1fr)) 40px; gap: 5px; min-width: 860px; padding-top: 8px; }
 .pg-tema .pg-lab { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--muted); display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 2px solid transparent; background: none; cursor: pointer; padding: 0; min-height: 30px; font-variant-numeric: tabular-nums; }
 .pg-tema .pg-lab:hover { border-color: var(--line); }
@@ -108,6 +111,8 @@
 .pg-tema .pg-cell.pg-sel .pg-z { color: var(--on-strong); }
 /* Regelbrytere: tynn, stiplet lilla stripe rundt klossen. Stiplet, så den skilles fra den heltrukne blå og oransje kanten også uten fargesyn. */
 .pg-tema .pg-cell.pg-x { outline: 2px dashed var(--unntak); outline-offset: 2px; }
+/* Gruppetallene 3 til 12 får samme stiplede stripe: hele kolonnen følger ikke regelen for ytterelektroner. */
+.pg-tema .pg-lab.pg-gl.pg-x, .pg-tema .pg-lab.pg-gl.pg-x:hover { border: 2px dashed var(--unntak); }
 .pg-tema .pg-cell.pg-x:focus-visible { outline: 3px solid var(--naturfag); outline-offset: 2px; }
 .pg-tema .pg-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); }
 .pg-tema .pg-key { display: inline-flex; align-items: center; gap: 8px; }

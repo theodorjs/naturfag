@@ -42,7 +42,9 @@ table.appendChild(corner);
 for (let g = 1; g <= 18; g++) {
   const b = document.createElement("button");
   b.type = "button"; b.className = "pg-lab pg-gl"; b.textContent = g; b.id = "g" + g;
-  b.setAttribute("aria-label", "Vis gruppe " + g);
+  const noRule = g >= 3 && g <= 12;
+  if (noRule) b.classList.add("pg-x");
+  b.setAttribute("aria-label", "Vis gruppe " + g + (noRule ? ", følger ikke regelen for ytterelektroner" : ""));
   b.style.gridRow = "1"; b.style.gridColumn = String(g + 1);
   b.addEventListener("click", () => show({ group: g }));
   table.appendChild(b); gLabs[g] = b;
@@ -184,7 +186,7 @@ function render(opt, row, col, sel) {
     const rp = els().filter(it => it.p === row && predicted(it));
     let x = rx.map(it => xBox(it.name + ' følger ikke regelen for antall skall', shellsText(it))).join('');
     if (ox.length === 1) x += xBox('Lilla stripe: følger ikke regelen for ytterelektroner', ox[0].name + ' har lilla stripe fordi det ikke følger regelen for ytterelektroner. Regelen for antall skall følger det.');
-    else if (ox.length > 1) x += xBox('Lilla stripe: følger ikke regelen for ytterelektroner', 'Klossene i gruppe 3 til 12 har lilla stripe fordi de ikke følger regelen for ytterelektroner.' + (rx.length ? '' : ' Regelen for antall skall følger de.'));
+    else if (ox.length > 1) x += xBox('Lilla stripe: følger ikke regelen for ytterelektroner', 'Klossene i gruppe 3 til 12 har lilla stripe fordi de ikke følger regelen for ytterelektroner. Regelen gjelder bare gruppe 1, 2 og 13 til 18.' + (rx.length ? '' : ' Regelen for antall skall følger de.'));
     info.innerHTML = '<div><p class="pg-eyebrow">Rad bortover</p><h3 class="pg-p">Periode ' + row + '</h3><div class="pg-facts"><div class="pg-fact pg-fp"><b class="pg-p">Alle' + (rx.length ? ' unntatt ' + list(rx.map(lc)) : '') + ' har ' + row + ' skall</b><p>Klossene i den oransje raden ligger ved siden av hverandre, fra venstre mot høyre. Atomnummeret øker med 1 for hver kloss bortover.' +
       (row === 6 ? ' Unntaket er klossen 57–71, der lantanoidene er samlet. Der hopper atomnummeret fra 56 til 72.' : row === 7 ? ' Unntaket er klossen 89–103, der aktinoidene er samlet. Der hopper atomnummeret fra 88 til 104.' : '') +
       (rp.length ? ' For grunnstoffene med atomnummer 104 til 118 er antallet skall beregnet, ikke målt.' : '') +
