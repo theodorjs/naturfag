@@ -92,11 +92,6 @@
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   box-shadow: inset 0 -4px 0 rgba(0,0,0,.08); transition: opacity .15s, background-color .15s;
 }
-.pg-tema .pg-cell::before { /* the two studs that make it a kloss */
-  content: ""; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
-  width: 26px; height: 6px;
-  background: radial-gradient(circle at 6px 6px, var(--brick-edge) 5px, transparent 5.5px), radial-gradient(circle at 20px 6px, var(--brick-edge) 5px, transparent 5.5px);
-}
 .pg-tema .pg-cell .pg-z { font-size: 10px; line-height: 1; color: var(--muted); font-variant-numeric: tabular-nums; }
 .pg-tema .pg-cell .pg-s { font-family: var(--display); font-weight: 600; font-size: 17px; line-height: 1.1; }
 .pg-tema .pg-cell.pg-ph .pg-s { font-size: 11px; font-family: var(--body); font-weight: 800; }
@@ -104,9 +99,7 @@
 .pg-tema .pg-table.pg-dim .pg-cell { opacity: .38; }
 .pg-tema .pg-table.pg-dim .pg-cell.pg-inrow, .pg-tema .pg-table.pg-dim .pg-cell.pg-incol { opacity: 1; }
 .pg-tema .pg-cell.pg-inrow { background: var(--periode-fill); border-color: var(--periode); }
-.pg-tema .pg-cell.pg-inrow::before { background: radial-gradient(circle at 6px 6px, var(--periode) 5px, transparent 5.5px), radial-gradient(circle at 20px 6px, var(--periode) 5px, transparent 5.5px); }
 .pg-tema .pg-cell.pg-incol { background: var(--gruppe-fill); border-color: var(--gruppe); }
-.pg-tema .pg-cell.pg-incol::before { background: radial-gradient(circle at 6px 6px, var(--gruppe) 5px, transparent 5.5px), radial-gradient(circle at 20px 6px, var(--gruppe) 5px, transparent 5.5px); }
 .pg-tema .pg-cell.pg-sel { background: linear-gradient(135deg, var(--periode) 50%, var(--gruppe) 50%); border-color: var(--fg); color: var(--on-strong); }
 .pg-tema .pg-cell.pg-sel .pg-z { color: var(--on-strong); }
 /* Regelbrytere: tynn, stiplet lilla stripe rundt klossen. Stiplet, så den skilles fra den heltrukne blå og oransje kanten også uten fargesyn. */
