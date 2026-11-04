@@ -14,6 +14,7 @@
   --periode-fill: #FCE1C4;
   --gruppe: #1B66B0;
   --gruppe-fill: #D2E5F8;
+  --unntak: #7A3DB8;
   --on-strong: #FFFFFF;
   --display: "Fredoka", "Nunito Sans", system-ui, sans-serif;
   --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -22,14 +23,14 @@
   :root:not([data-theme="light"]) .pg-tema {
     --bg: #111713; --surface: #1A221C; --fg: #E8EFE9; --muted: #A3B2A7; --line: #2E3A31;
     --brick: #26302A; --brick-edge: #3A463E; --naturfag: #7CC47F;
-    --periode: #F2A35A; --periode-fill: #4A2D12; --gruppe: #72B4F2; --gruppe-fill: #15324F;
+    --periode: #F2A35A; --periode-fill: #4A2D12; --gruppe: #72B4F2; --gruppe-fill: #15324F; --unntak: #C9A3F2;
     --on-strong: #111713; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] .pg-tema {
   --bg: #111713; --surface: #1A221C; --fg: #E8EFE9; --muted: #A3B2A7; --line: #2E3A31;
   --brick: #26302A; --brick-edge: #3A463E; --naturfag: #7CC47F;
-  --periode: #F2A35A; --periode-fill: #4A2D12; --gruppe: #72B4F2; --gruppe-fill: #15324F;
+  --periode: #F2A35A; --periode-fill: #4A2D12; --gruppe: #72B4F2; --gruppe-fill: #15324F; --unntak: #C9A3F2;
   --on-strong: #111713; color-scheme: dark;
 }
 .pg-tema, .pg-tema * { box-sizing: border-box; }
@@ -105,11 +106,15 @@
 .pg-tema .pg-cell.pg-incol::before { background: radial-gradient(circle at 6px 6px, var(--gruppe) 5px, transparent 5.5px), radial-gradient(circle at 20px 6px, var(--gruppe) 5px, transparent 5.5px); }
 .pg-tema .pg-cell.pg-sel { background: linear-gradient(135deg, var(--periode) 50%, var(--gruppe) 50%); border-color: var(--fg); color: var(--on-strong); }
 .pg-tema .pg-cell.pg-sel .pg-z { color: var(--on-strong); }
+/* Regelbrytere: tynn, stiplet lilla stripe rundt klossen. Stiplet, så den skilles fra den heltrukne blå og oransje kanten også uten fargesyn. */
+.pg-tema .pg-cell.pg-x { outline: 2px dashed var(--unntak); outline-offset: 2px; }
+.pg-tema .pg-cell.pg-x:focus-visible { outline: 3px solid var(--naturfag); outline-offset: 2px; }
 .pg-tema .pg-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); }
 .pg-tema .pg-key { display: inline-flex; align-items: center; gap: 8px; }
 .pg-tema .pg-key i { width: 18px; height: 18px; border-radius: 4px; display: inline-block; border: 2px solid; }
 .pg-tema .pg-key .pg-kp { background: var(--periode-fill); border-color: var(--periode); }
 .pg-tema .pg-key .pg-kg { background: var(--gruppe-fill); border-color: var(--gruppe); }
+.pg-tema .pg-key .pg-kx { background: var(--brick); border-color: var(--brick-edge); outline: 2px dashed var(--unntak); outline-offset: 2px; }
 .pg-tema .pg-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .pg-tema .pg-chips span { font-size: 14px; color: var(--muted); font-weight: 600; }
 .pg-tema .pg-chip { font: inherit; font-size: 14px; font-weight: 800; border: 2px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
@@ -123,6 +128,8 @@
 .pg-tema .pg-fact { border-left: 6px solid; padding: 4px 0 4px 14px; }
 .pg-tema .pg-fact.pg-fp { border-color: var(--periode); }
 .pg-tema .pg-fact.pg-fg { border-color: var(--gruppe); }
+.pg-tema .pg-fact.pg-fx { border-color: var(--unntak); }
+.pg-tema .pg-x-t { color: var(--unntak); }
 .pg-tema .pg-fact > b { font-family: var(--display); font-weight: 600; font-size: 19px; display: block; }
 .pg-tema .pg-fact p { margin: 2px 0 0; }
 .pg-tema .pg-note { margin: 12px 0 0; color: var(--muted); font-size: 15px; }
