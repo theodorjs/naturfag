@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bindinger i bevegelse</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="description" content="Tre animasjoner som viser molekylbinding, saltbinding og metallbinding.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&display=swap">
+<link rel="stylesheet" href="bindinger.css">
+</head>
+<body>
+<nav class="side-nav" aria-label="Tilbake"><a href="../">← Alle temaer</a></nav>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">Naturfag · Stoffer</p>
+      <h1>Bindinger i bevegelse</h1>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Velg binding">
+      <button class="tab" role="tab" id="tab-molekyl" aria-selected="true" aria-controls="scene" data-scene="molekyl">Molekylbinding</button>
+      <button class="tab" role="tab" id="tab-salt" aria-selected="false" aria-controls="scene" data-scene="salt">Saltbinding</button>
+      <button class="tab" role="tab" id="tab-metall" aria-selected="false" aria-controls="scene" data-scene="metall">Metallbinding</button>
+    </div>
+  </header>
+
+  <div class="stage" id="scene" role="tabpanel">
+    <canvas id="cv" width="960" height="540" role="img" aria-label="Animasjon av en binding"></canvas>
+  </div>
+  <p class="caption" id="caption" aria-live="polite"></p>
+
+  <div class="controls">
+    <button class="btn" id="play" type="button">Pause</button>
+    <button class="btn" id="restart" type="button">Start på nytt</button>
+    <button class="btn" id="current" type="button" aria-pressed="false">Koble til strøm</button>
+    <button class="btn" id="bend" type="button" aria-pressed="false">Bøy metallet</button>
+  </div>
+
+  <div class="info">
+    <div class="card" id="explain"></div>
+    <div class="card"><h2>Slik leser du tegningen</h2><ul class="legend" id="legend"></ul></div>
+  </div>
+</div>
+<footer class="bunntekst">© 2026 Theodor Sandaker · Alle rettigheter forbeholdt · <a href="mailto:sandakersverden@gmail.com">Kontakt</a> · en del av <a href="https://theodorjs.github.io/sandakersverden/">Sandakers Verden</a></footer>
+<script src="bindinger.js" defer></script>
+</body>
+</html>

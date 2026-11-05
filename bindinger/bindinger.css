@@ -1,0 +1,72 @@
+/* Bindinger i bevegelse. Oppsett: mørk tavleflate (samme som presentasjonen), faner øverst, scene i 16:9, bildetekst under, styring og forklaring. Bevisst ett mørkt uttrykk, fordi sidene skal vises på prosjektor. */
+:root {
+  color-scheme: dark;
+  --bg: #10241A;
+  --surface: #1A3326;
+  --surface-2: #234333;
+  --stage: #0C1C14;
+  --fg: #F2F5EE;
+  --muted: #A9BFB0;
+  --line: #2F5240;
+  --pluss: #E07A2A;
+  --minus: #4FA3F0;
+  --gul: #FFD966;
+  --gronn: #8FD19E;
+  --display: "Fredoka", "Nunito Sans", system-ui, sans-serif;
+  --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 48px;
+}
+.wrap { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 4.2vw, 42px); margin: 0; line-height: 1.1; text-wrap: balance; }
+.eyebrow { margin: 0 0 4px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gronn); }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab {
+  font: inherit; font-weight: 800; font-size: 16px; color: var(--muted); background: var(--surface);
+  border: 2px solid var(--line); border-radius: 999px; padding: 8px 18px; cursor: pointer;
+}
+.tab[aria-selected="true"] { color: var(--bg); background: var(--gul); border-color: var(--gul); }
+.tab:hover { border-color: var(--gul); }
+.stage { position: relative; background: var(--stage); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.caption {
+  min-height: 3.2em; margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(19px, 2.4vw, 26px);
+  line-height: 1.3; text-wrap: balance;
+}
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn {
+  font: inherit; font-weight: 800; font-size: 15px; color: var(--fg); background: var(--surface-2);
+  border: 2px solid var(--line); border-radius: 12px; padding: 9px 16px; cursor: pointer;
+}
+.btn:hover { border-color: var(--gronn); }
+.btn[aria-pressed="true"] { background: var(--minus); border-color: var(--minus); color: var(--bg); }
+.btn:focus-visible, .tab:focus-visible { outline: 3px solid var(--gul); outline-offset: 2px; }
+.info { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; }
+@media (max-width: 760px) { .info { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border-radius: 16px; padding: 18px 20px; min-width: 0; }
+.card h2 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 0 0 6px; }
+.card p { margin: 0 0 8px; }
+.card p:last-child { margin-bottom: 0; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.legend li { display: flex; gap: 12px; align-items: center; }
+.dot { flex: none; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; color: var(--bg); font-size: 16px; }
+.dot.p { background: var(--pluss); }
+.dot.m { background: var(--minus); width: 16px; height: 16px; margin: 0 5px; }
+.dot.k { background: var(--fg); }
+.ring { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--muted); }
+b.p { color: var(--pluss); } b.m { color: var(--minus); }
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+.side-nav { max-width: 1100px; margin: 0 auto 8px; }
+.side-nav a { font-size: 15px; font-weight: 800; color: var(--gronn); text-decoration: none; }
+.side-nav a:hover { text-decoration: underline; }
+.side-nav a:focus-visible { outline: 3px solid var(--gul); outline-offset: 2px; border-radius: 4px; }
+.bunntekst { padding: 28px 0 0; text-align: center; font-size: 12px; color: var(--muted); }
+.bunntekst a { color: inherit; }
+

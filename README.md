@@ -9,6 +9,7 @@ Nettside: https://theodorjs.github.io/naturfag/
 - `naeringskjeder/` er temaet Næringskjeder og økosystemer.
 - `periode-og-gruppe/` er temaet Periode eller gruppe?
 - `reaksjonstid/` er temaet Søvn og reaksjonstid: en reaksjonstest på 2 minutter som kan legges på hjemskjermen som web-app.
+- `bindinger/` er temaet Bindinger i bevegelse: animasjoner av molekylbinding, saltbinding og metallbinding.
 
 ## Legge til et nytt tema
 
