@@ -121,6 +121,15 @@
       circle(x, y, 22, sym === "Na" ? C.pluss : C.minus, ringsAlpha);
       label(x, y, sym, 18, C.stage, ringsAlpha);
     },
+    inner(x, y, glow, alpha) {
+      for (let k = 0; k < 2; k++) { const a = Math.PI / 2 + k * Math.PI; circle(x + 34 * Math.cos(a), y + 34 * Math.sin(a), 4.5, C.muted, 0.55 * alpha); }
+      if (glow > 0) ring(x, y, 52, C.ring, 2.5, glow * alpha);
+      for (let k = 0; k < 8; k++) {
+        const a = Math.PI / 8 + k * Math.PI / 4, ex = x + 52 * Math.cos(a), ey = y + 52 * Math.sin(a);
+        if (glow < 1) circle(ex, ey, 4.5, C.muted, 0.55 * (1 - glow) * alpha);
+        if (glow > 0) electron(ex, ey, C.minus, glow * alpha, lerp(4.5, 7, glow));
+      }
+    },
     draw(t) {
       const sA = seg(t, 0, 2), sB = seg(t, 2, 4), sC = seg(t, 4, 5.5), sD = seg(t, 5.5, 7), sX = seg(t, 6.2, 7.2);
       const naX = lerp(lerp(250, 330, sA), 432, sD), clX = lerp(lerp(710, 630, sA), 528, sD), y = 270;
@@ -130,6 +139,9 @@
         if (sC > 0) { circle(naX, y, 60, C.pluss, 0.18 * sC * detail); circle(clX, y, 84, C.minus, 0.18 * sC * detail); }
         this.atom(naX, y, "Na", 1, 1 - sC, null, detail);
         this.atom(clX, y, "Cl", 7, 1, 0, detail);
+        // Indre elektroner: grå og duset, som i periodesystemet. Når natrium har gitt bort ytterelektronet, blir skall 2 det nye ytterskallet og lyser opp.
+        this.inner(naX, y, sC, detail);
+        this.inner(clX, y, 0, detail);
         // Cl electrons (7 fixed)
         for (let k = 1; k < 8; k++) { const a = k * Math.PI / 4; electron(clX - 72 * Math.cos(a), y - 72 * Math.sin(a), C.minus, detail); }
         // moving electron
@@ -166,8 +178,8 @@
       return "Saltet blir aldri ferdig. Det vokser så lenge det kommer flere ioner.";
     },
     rest: 13.5,
-    explain: '<h2>Saltbinding</h2><p>Et metall og et ikke-metall møtes. Metallet <b class="p">gir</b> fra seg elektroner, og ikke-metallet <b class="m">tar</b> dem.</p><p>Da blir metallet et pluss-ion og ikke-metallet et minus-ion. Pluss og minus trekker hverandre, akkurat som magneter.</p><p>Hvert ion trekker i alle ioner rundt seg, så saltet vokser til en krystall. Bordsalt er natriumklorid, NaCl.</p>',
-    legend: '<li><span class="dot p">+</span><span>Natriumion, Na⁺</span></li><li><span class="dot m" style="background:var(--minus);width:26px;height:26px;margin:0"></span><span>Kloridion, Cl⁻ (litt større)</span></li><li><span class="ring"></span><span>Elektronskall. Bare ytterelektronene er tegnet</span></li>'
+    explain: '<h2>Saltbinding</h2><p>Et metall og et ikke-metall møtes. Metallet <b class="p">gir</b> fra seg elektroner, og ikke-metallet <b class="m">tar</b> dem.</p><p>Da blir metallet et pluss-ion og ikke-metallet et minus-ion. Pluss og minus trekker hverandre med elektrisk kraft, litt på samme måte som nordpolen og sørpolen på to magneter.</p><p>Ionene påvirker ionene rundt seg. De med ulik ladning tiltrekker hverandre, og de med lik ladning skyver hverandre vekk. Slik vokser saltet til en krystall. Bordsalt er natriumklorid, NaCl.</p>',
+    legend: '<li><span class="dot p">+</span><span>Natriumion, Na⁺</span></li><li><span class="dot m" style="background:var(--minus);width:26px;height:26px;margin:0"></span><span>Kloridion, Cl⁻ (større)</span></li><li><span class="ring"></span><span>Elektronskall. Ytterelektronene er blå, de indre elektronene er grå</span></li>'
   };
 
   /* ---------- MOLEKYL ---------- */
